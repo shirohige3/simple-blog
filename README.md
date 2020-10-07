@@ -31,6 +31,7 @@ Things you may want to cover:
 | nickname         | string     | null: false      |
 | email            | string     | null: false      |
 | password         | string     | null: false      |
+| introduction     | text       |                  |
 | full_name        | string     | null: false      |
 | full_name_kana   | string     | null: false      |
 | birth_date       | date       | null: false      |
@@ -42,8 +43,9 @@ Things you may want to cover:
 ##blogs テーブル
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
-| name             | string     | null: false                    |
-| text             | string     | null: false                    |
+| title            | string     | null: false                    |
+| text             | text       | null: false                    |
+| status           | integer    | null: false,  default: 0       |
 | user             | references | null: false, foreign_key: true |
 ### Association
 - belongs_to       :user
@@ -57,7 +59,7 @@ Things you may want to cover:
 | ---------------- | ---------------| ------------------------------ |
 | user             | references     | null: false, foreign_key: true |
 | blog             | references     | null: false, foreign_key: true |
-| text             | string         | null: false                    |
+| text             | text           | null: false                    |
 
 ### Association
 - belongs_to  :user
