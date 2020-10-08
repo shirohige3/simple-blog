@@ -1,0 +1,31 @@
+.new-users{
+ cursor: pointer;
+ text-align: center;
+ font-size: 15px;
+}
+.title2{
+  font-size: 20px;
+  margin: 40px 0 10px ;
+}
+.field{
+  padding-bottom: 10px;
+}
+.label{
+/* 後ほど研究する文字だけを左寄せ */
+}
+.input-area{
+  padding: 5px 100px;
+}
+.essential{
+  color: white;
+  background-color: red;
+  font-size: medium;
+}
+.submit-btn{
+  padding: 10px 70px ;
+}
+.birth-date{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
