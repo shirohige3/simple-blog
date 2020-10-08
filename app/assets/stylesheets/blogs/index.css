@@ -1,0 +1,104 @@
+.wrapper{
+  background-color: black;
+  align-items: center;
+}
+/* ヘッダーコンテンツ関連 */
+.title1{
+  font-size: 20px;
+}
+.header{
+ height: 50px;
+ width: 100vw;
+ background-color: azure;
+ display: flex;
+ justify-content: space-between;
+}
+.user-list{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.icon{
+  text-decoration: none;
+  margin: 0 3px;
+}
+.nickname{
+  text-decoration: none;
+  margin-right: 3vw;
+}
+.sign-in{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 20px;
+  padding-right: 20px;
+}
+.log-out{
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+.new-user{
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+.log-in{
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+/* サイドバーコンテンツ関連 */
+.footer{
+  height: 30px;
+  width:  100vw;
+  background-color: skyblue;
+}
+.side_item{
+  background-color: black;
+}
+
+/* ブログを展開する部分 */
+.main-content{
+  height: calc(100vh - 80px);
+  width: 100vw;
+  background-color:  red;
+}
+.title{
+  font-family: sans-serif;
+  font-size: 60px;
+  /* 記事一覧に陰影表示 */
+  text-shadow: 3px 3px ivory, 4px 4px 0 #5d6f77; 
+}
+.blog-contents{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-list {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.blog-image-items{
+  position: relative;
+}
+.blog-img{
+  height: 35vh;
+  width: 50vh;
+} 
+.post{
+  padding: 50px;
+
+}
+.post-btn{
+  text-align: center;
+  border: 1px solid black;
+  color: #333333;
+  background-color: white;
+  font-size: 30px;
+  margin: 20px 0px;
+  padding: 1vh 3vw;
+}
