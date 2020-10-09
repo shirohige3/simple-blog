@@ -38,8 +38,8 @@
                     class:'select-birth',
                     id:"birth-date",
                     use_month_numbers: true,
-                    prompt:'2000',
-                    start_year: 1930,
+                    prompt:'--',
+                    start_year: 1950,
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
@@ -47,19 +47,19 @@
    </div>
 
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label :メールアドレス %>
     <span class="essential">必須</span><br />
     <%= f.email_field :email, class:"input-area", id: "email", placeholder:"@を含むメールアドレス" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
    　<span class="essential">必須</span><br />
     <%= f.password_field :password, class:"input-area", id: "password", placeholder:"6文字以上の半角英数字" %>
   </div>
 
   <div class="field">
-    <%= f.label :passwordの確認 %>
+    <%= f.label :パスワードの確認 %>
     <span class="essential">必須</span><br />
     <%= f.password_field :password_confirmation, class:"input-area", id: "password-confirmation", placeholder:"passwordを再入力" %>
   </div>
@@ -68,4 +68,7 @@
     <%= f.submit "新規登録する", class:"submit-btn" %>
   </div>
    <% end %>
+  <div class="actions">
+    <%= link_to "戻る", root_path, class:"return-btn" %>
+  </div>
 </div>

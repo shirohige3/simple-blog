@@ -9,16 +9,16 @@
      <%=link_to "icon","#", class:"icon"%>
      <%=link_to current_user.nickname, "#", class:"nickname"%>
      <% else %>
-     <%=kink_to "No User", new_user_registration_path, class:"nickname"%>
+     <%=link_to "No User", new_user_registration_path, class:"nickname"%>
      <%end%>
   </div>
 
   <div class="sign-in">
-     <%# if user_signed_in? %>
-     <%= link_to "ログアウト", root_path, class:"log-out" %>
-   <%# <% else %>
+    <% if user_signed_in? %>
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"log-out" %>
+    <% else %>
      <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
      <%= link_to "ログイン",user_session_path, class:"log-in" %>
-   <%# <% end %>
+    <% end %>
   </div>
 </div>
