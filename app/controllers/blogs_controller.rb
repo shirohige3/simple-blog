@@ -2,7 +2,6 @@ class BlogsController < ApplicationController
   
   def index
     @blogs = Blog.includes(:user).order("created_at DESC")
-    # @blogs = Blog.all.order("created_at DESC")
   end
 
   def new
@@ -11,6 +10,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    # binding.pry
     if @blog.valid?
       @blog.save
       redirect_to root_path
@@ -22,6 +22,6 @@ class BlogsController < ApplicationController
 
     private
      def blog_params
-      params.require(:blog).permit(:title, :image, :text, :status).merge(:user_id, current_user.id)
+      params.require(:blog).permit(:title, :image, :text, :status).merge(user_id: current_user.id)
      end
 end

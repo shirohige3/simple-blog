@@ -1,0 +1,40 @@
+<%# ブログ投稿記事作成ページ %>
+<div class="header">
+  <%= render "shared/header" %>
+</div>
+
+ <div class="back-ground">
+ </div>
+    <%# 記事投稿フォーム作成 %>
+ <div class="blog-info">
+  <%= form_with model:@blog, local: true do |f| %>
+     <%= render "shared/error_messages", model:@blog %>
+  <div class="title-box"> 
+   <div class="blog-title">
+    <%= f.label :タイトル %><br />
+     <%= f.text_field :title, class:"title-area", id:"title", placeholder:"記事タイトル" %>
+   </div>
+
+    <%# 画像投稿フォーム %>
+    <div class="img-upload">
+     <div class="img-text">
+      見出し画像(indexで表示されます)
+     </div>
+      <%= f.file_field :image, id:"blog-image"%>
+    </div>
+  </div>
+    <%# 記事内容投稿フォーム %>
+    <div class="blog-report">
+     <%= f.label :投稿内容作成 %><br />
+     <%= f.text_area :text, class:"blog-form", id:"text", placeholder:"記事内容"%>
+    </div>
+
+    <%# ボタン %>
+     <div class="actions">
+      <%= f.submit "投稿する", class:"contribute-btn"%>
+     </div>
+     <div class="actions">
+      <%= link_to "戻る", root_path, class:"return-btn" %>
+     </div>
+  <% end %>
+ </div>

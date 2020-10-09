@@ -62,7 +62,7 @@
 .main-content{
   height: calc(100vh - 80px);
   width: 100vw;
-  background-color:  red;
+  background-color: cornsilk;
 }
 .title{
   font-family: sans-serif;
