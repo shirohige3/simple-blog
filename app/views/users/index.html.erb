@@ -1,11 +1,9 @@
-<div class="blog-contents">
-   <h1 class="title">Blog Index</h1>
-   <%#ブログが存在したらブログ展開%>
-   <ul class="blog-lists">
- <% if @blogs.size > 0 %> 
+<%# <マイページ> %>
+<div class="blog-lists">
+  <% if @user.blog_id > 0 %> 
    <% @blogs.each do |blog| %>
     <li class="list">
-     <%= link_to blog_path(blog.id) do %>
+     <%= link_to blog_path(blog.current_user.id) do %>
       <div class="blog-image"> 
        <% if blog.image != 0 %>
         <%#= image_tag blog.image, class: "blog-img", if blog.image.attached? %>
@@ -32,13 +30,7 @@
    </div>
   <% end %>
   </ul>
-  <% if user_signed_in? %>
-    <div class="post">
-     <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
-    </div>
-   <% else %>
-    <div class="post">
-     <%= link_to "記事を書く", new_user_session_path, class:"post-btn"%>
-    </div>
-   <% end %>
+  <div class="post">
+   <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
+   </div>
 </div>

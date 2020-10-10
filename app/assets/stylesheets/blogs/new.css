@@ -18,7 +18,9 @@ margin: 0 40px;
 }
 
 .blog-report{
- margin-top: 20px; 
+ margin: 20px 0;
+ padding: 3px;
+ border: 1px solid black ; 
 }
 .blog-form{
   height: 60vh;
@@ -33,4 +35,24 @@ margin: 0 40px;
   padding: 1vh 5vw;
   font-size: 20px;
   margin: 1vh;
+}
+
+.edit-btn{
+    text-align: center;
+    border: 1px solid black;
+    color: #333333;
+    background-color: rgb(168, 39, 39);
+    font-size: 30px;
+    margin: 20px 0px;
+    padding: 1vh 3vw;
+}
+
+.delete-btn{
+  text-align: center;
+  border: 1px solid black;
+  color: #333333;
+  background-color: rgb(99, 89, 89);
+  font-size: 30px;
+  margin: 20px 0px;
+  padding: 1vh 3vw;
 }

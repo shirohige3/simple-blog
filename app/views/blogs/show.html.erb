@@ -1,0 +1,32 @@
+<%# 詳細ブログ記事ページ %>
+<%= render "shared/header"%>
+
+<div class="main-content">
+ <div class="blog-contents">
+  <h3 class="blog-title">
+   <%= @blog.title %>
+  </h3>
+  <div class="blog-report">
+   <%= @blog.text%>
+  </div>
+  <% if user_signed_in? && current_user.id == @blog.user_id  %>
+   <%= link_to "編集する", edit_blog_path, class:"edit-btn"%>
+   or
+   <%= link_to "削除する", blog_path, method: :delete, class:"delete-btn"%>
+   <%else%>
+  <%# その人の別のブログ記事へ飛べるようにする %>
+   <div class="links">
+    <a href="#" class="change-blog-btn">
+      ＜ 前の記事
+    </a>
+    <a href="#" class="change-blog-btn">
+      後ろの記事 ＞
+    </a>
+  </div>
+  <a href="#" class='another-blog'><%= @blog.user.nickname %>さんのブログをもっと見る</a>
+  <%end%>
+    <div class="actions">
+   <%= link_to "戻る", root_path, class:"return-btn" %> 
+  </div>
+ </div>
+</div>
