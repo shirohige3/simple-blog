@@ -6,12 +6,12 @@
    <% @blogs.each do |blog| %>
     <li class="list">
      <%= link_to blog_path(blog.id) do %>
-      <div class="blog-image">
-       <%#if @blog.image != 0 %>
-        <%#=# image_tag blog.image, class: "blog-img"%>
-       <%# else %>
-        <%#= link_to image_tag "neco.jpeg", class: "blog-img"%>
-        <%# end %>
+      <div class="blog-image"> 
+       <% if blog.image != 0 %>
+        <%#= image_tag blog.image, class: "blog-img", if blog.image.attached? %>
+       <% else %>
+        <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
+        <% end %>
 
        <div class="blog-info">
         <h3 class="blog-title">
