@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
          has_many :blogs
          has_many :comments
-        #  has_one_attached :image
+         has_one_attached :image
 
          validates :nickname,       presence: true
 

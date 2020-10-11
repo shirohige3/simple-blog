@@ -1,9 +1,9 @@
 <%# <マイページ> %>
 <div class="blog-lists">
-  <% if @user.blog_id > 0 %> 
+  <% if @blogs.size > 0 %> 
    <% @blogs.each do |blog| %>
     <li class="list">
-     <%= link_to blog_path(blog.current_user.id) do %>
+     <%= link_to blog_path(blog.id) do %>
       <div class="blog-image"> 
        <% if blog.image != 0 %>
         <%#= image_tag blog.image, class: "blog-img", if blog.image.attached? %>
@@ -33,4 +33,7 @@
   <div class="post">
    <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
    </div>
+       <div class="actions">
+   <%= link_to "戻る", root_path, class:"return-btn" %> 
+  </div>
 </div>
