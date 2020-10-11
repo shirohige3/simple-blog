@@ -37,12 +37,15 @@ class BlogsController < ApplicationController
     end
   end
 
-
+  def show
+    @comment = Comment.new
+    @comments = @blog.comments.includes(:user)
+  end
 
 
     private
      def blog_params
-      params.require(:blog).permit(:title, :image, :text, :status).merge(user_id: current_user.id)
+      params.require(:blog).permit(:title, :image, :text, :status, :comment).merge(user_id: current_user.id)
      end
 
      def set_blog

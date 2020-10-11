@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:show, :destroy, :edit]
-  before_action :move_to_index, only:[:show]
+  before_action :move_to_index, only:[:show, :edit]
 
 
   def index
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:nickname, :email, :password, :full_name, :full_name_kana, :birth_date, :introduction).merge(blog_id: blog.id)
+      params.require(:user).permit(:nickname, :email, :password, :full_name, :full_name_kana, :birth_date, :introduction, :image).merge(blog_id: blog.id)
     end
    
 
