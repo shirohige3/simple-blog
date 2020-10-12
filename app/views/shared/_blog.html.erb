@@ -1,0 +1,20 @@
+<%# ブログの検索結果を表示する %>
+<% @blogs.each do |blog| %>
+  <div class="blog-contents">
+    <li class="list">
+      <%= link_to blog_path(blog.id) do %>
+       <div class="blog-image"> 
+        <% if blog.image != 0 %>
+         <%= image_tag blog.image, class: "blog-img" %>
+        <% else %>
+         <%= link_to image_tag "no-image.jpeg", class: "blog-img"%>
+        <% end %>
+         <div class="blog-info">
+          <h3 class="blog-title">
+           <%= blog.title %>
+          </h3>
+         </div>
+      <% end %>
+    </li>
+  </div>
+<% end %>

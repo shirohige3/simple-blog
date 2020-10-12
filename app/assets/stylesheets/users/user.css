@@ -35,8 +35,17 @@
 .return-btn{
   text-decoration: none;
   font-size: 15px;
-  background-color: cornsilk;
+  background-color: white;
   border: solid 1px ;
-  padding: 10px 50px;
+  padding: 1vh 5vw;
   color: black;
+  margin: 5vh;
+}
+.change-blog-btn{
+  text-decoration: none;
+  margin: 3vh 3vw;
+}
+.another-blog{
+  text-decoration: none;
+  margin-top: 3vh;
 }

@@ -8,4 +8,13 @@ class Blog < ApplicationRecord
   validates :text
   end
   
+  # Blogテーブルとの検索データのやり取り
+  def self.search(search)
+    if search !=""
+      Blog.where("title LIKE(?)","%#{search}%")
+    else
+      Blog.all
+    end
+  end
+
 end

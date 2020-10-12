@@ -3,31 +3,24 @@
    <%#ブログが存在したらブログ展開%>
    <ul class="blog-lists">
  <% if @blogs.size > 0 %> 
-   <%= @blogs.each do |blog| %>
-    <li class="list">
-     <%= link_to blog_path(blog.id) do%>
-      <div class="blog-image">
-        <%= image_tag blog.image, class: "blog-img"%>
-       <div class="blog-info">
-        <h3 class="blog-title">
-         <%= blog.title %>
-        </h3>
-       </div>
-      </div>
-     <% end %>
-    </li>
-   <% end %>
+   <%= render "shared/blog"%>
     <%#blogがまだない時の表示%>
-  <%else %>
-  <div class="blog-list">
-   <div class="blog-image">
+  <% else %>
+   <div class="blog-list">
+    <div class="blog-image">
         <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
-    <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
+     <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
+    </div>
    </div>
-   </div>
-  <%end%>
+  <% end %>
   </ul>
-  <div class="post">
-   <%= link_to "記事を書く", "#", class:"post-btn" %>
-   </div>
+  <% if user_signed_in? %>
+    <div class="post">
+     <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
+    </div>
+   <% else %>
+    <div class="post">
+     <%= link_to "記事を書く", new_user_session_path, class:"post-btn"%>
+    </div>
+   <% end %>
 </div>

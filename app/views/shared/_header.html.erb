@@ -2,17 +2,30 @@
    <h1>SimpleBlog2000</h1>
   </div>
 <div class="header">
-
   <%# ユーザーアイコンなどを設置する %>
   <div class="user-list">
+  <%# ログインしてるとマイページ。していなければログイン画面へ %>
    <% if user_signed_in? %>
-     <%=link_to "icon","#", class:"icon"%>
-     <%=link_to current_user.nickname, "#", class:"nickname"%>
-     <% else %>
-     <%=link_to "No User", new_user_registration_path, class:"nickname"%>
-     <%end%>
+    <%# if @user.image != 0 %>
+     <%#=#link_to current_user.image, class:"icon"%>
+    <%# else %>
+    <div class="image-block">
+     <%#= link_to image_tag "no-image1.png", class: "blog-img"%>
+    </div>
+    <%# end %>
+     <%=link_to current_user.nickname, user_path(current_user.id), method: :get, class:"nickname"%>
+   <% else %>
+     <%=link_to "No User", user_session_path, class:"nickname"%>
+   <%end%>
   </div>
-
+    <%# 検索フォーム %>
+  <div class="search-block">
+   <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
+    <%= f.text_field :keyword, placeholder:"記事検索", class:"search-input" %>
+    <%= f.submit "検索", class:"search-btn"%>
+   <% end %>
+  </div>
+    <%# ユーザーアカウント機能 %>
   <div class="sign-in">
     <% if user_signed_in? %>
      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"log-out" %>

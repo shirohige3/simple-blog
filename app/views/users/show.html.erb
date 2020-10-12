@@ -1,0 +1,42 @@
+<%# <マイページ> %>
+<%= render "shared/header"%>
+
+   <%# <ブログ展開> %>
+<div class="blog-lists">
+  <% if @blogs.size > 0 %> 
+   <% @blogs.each do |blog| %>
+    <div class="blog_image_content">
+     <%= link_to blog_path(blog.id) do %>
+      <div class="blog-image"> 
+       <% if blog.image != 0 %>
+        <%= image_tag blog.image.variant(resize:'500x500'), class: "blog-image" %>
+       <% else %>
+       <%# 画像がない時のイメージ %>
+        <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
+        <% end %>
+       <div class="blog-info">
+        <h3 class="blog-title">
+         <%= blog.title %>
+        </h3>
+       </div>
+      </div>
+     </div>
+     <% end %>
+   <% end %>
+    <%#blogがまだない時の表示%>
+  <% else %>
+   <div class="blog-list">
+    <div class="blog-image">
+        <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
+     <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
+    </div>
+   </div>
+  <% end %>
+  </ul>
+  <div class="post">
+   <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
+   </div>
+       <div class="actions">
+   <%= link_to "戻る", root_path, class:"return-btn" %> 
+  </div>
+</div>
