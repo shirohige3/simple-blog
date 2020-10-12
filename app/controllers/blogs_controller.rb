@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only:[:show, :edit, :destroy, :update]
-  before_action :move_to_index, only:[:edit]
+  before_action :move_to_index, only:[:edit, :new]
 
   def index
     @blogs = Blog.includes(:user).order("created_at DESC")
@@ -40,6 +40,10 @@ class BlogsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @blog.comments.includes(:user)
+  end
+
+  def search
+    @blogs = Blog.search(params[:keyword])
   end
 
 

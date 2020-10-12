@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :blogs do
    resources :comments, only: :create
     collection do 
-     get "serch"
+     get "search"
     end
   end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

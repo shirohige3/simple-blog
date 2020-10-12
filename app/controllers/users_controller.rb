@@ -48,8 +48,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:nickname, :email, :password, :full_name, :full_name_kana, :birth_date, :introduction, :image).merge(blog_id: blog.id)
     end
    
-
-
     def set_user
       @user = User.find(params[:id])
     end

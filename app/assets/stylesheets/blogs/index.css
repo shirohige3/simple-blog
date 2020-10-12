@@ -26,6 +26,12 @@
   text-decoration: none;
   margin-right: 3vw;
 }
+.search-block{
+align-items: flex-end;
+}
+.search-input{
+  margin: 0 40px;
+}
 .sign-in{
   display: flex;
   justify-content: flex-end;
