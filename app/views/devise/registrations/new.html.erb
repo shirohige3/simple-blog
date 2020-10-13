@@ -10,7 +10,7 @@
 
   <div class="field">
    <div class="label">
-    <%= f.label :ニックネーム %>
+    <%= f.label :ニックネーム（最大文字数は10文字） %>
     <span class="essential">必須</span><br />
     </div>
     <%= f.text_field :nickname, class:"input-area", id: "nickname", placeholder:"例)ヤマダー" %>
@@ -30,7 +30,6 @@
 
    <div class="field">
     <%= f.label :生年月日 %>
-    <span class="essential">必須</span><br />
     <div class="birth-date">
           <%= raw sprintf(
                   f.date_select(
@@ -54,7 +53,7 @@
 
   <div class="field">
     <%= f.label :パスワード %>
-   　<span class="essential">必須</span><br />
+     <span class="essential">必須</span><br />
     <%= f.password_field :password, class:"input-area", id: "password", placeholder:"6文字以上の半角英数字" %>
   </div>
 

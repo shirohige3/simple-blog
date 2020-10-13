@@ -1,13 +1,13 @@
 <%# 詳細ブログ記事ページ %>
 <%= render "shared/header"%>
-
+<%= render "shared/error_messages", model: @comment%>
 <div class="main-content">
  <div class="blog-contents">
     <div class="blog_image_content">
      <%= link_to blog_path(@blog.id) do %>
       <div class="blog-image"> 
        <% if @blog.image != 0 %>
-        <%= image_tag @blog.image.variant(resize:'300x300'), class: "blog-image" %>
+        <%= image_tag @blog.image.variant(resize:'300x300'), class: "blog-image" if @blog.image.attached? %>
        <% else %>
          <%# 画像がない時のイメージ %>
         <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
