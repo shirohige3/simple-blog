@@ -8,7 +8,7 @@ class User < ApplicationRecord
          has_many :comments
          has_one_attached :image
 
-         validates :nickname,       presence: true
+         validates :nickname,       presence: true, length:{maximum: 10}
 
          validates :full_name,      presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
          validates :full_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }

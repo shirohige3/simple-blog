@@ -1,8 +1,8 @@
 <div class="blog-contents">
-   <h1 class="title">Blog Index</h1>
+   <h1 class="title">新着記事一覧</h1>
    <%#ブログが存在したらブログ展開%>
    <ul class="blog-lists">
- <% if @blogs.size > 0 %> 
+  <% if @blogs.size > 0 %> 
    <%= render "shared/blog"%>
     <%#blogがまだない時の表示%>
   <% else %>
@@ -14,6 +14,7 @@
    </div>
   <% end %>
   </ul>
+  
   <% if user_signed_in? %>
     <div class="post">
      <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>

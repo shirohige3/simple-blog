@@ -113,3 +113,29 @@ align-items: flex-end;
   font-size: 20px;
   
 }
+
+
+
+
+
+
+
+<% @blogs.each do |blog| %>
+<div class="blog_image_content">
+ <%= link_to blog_path(blog.id) do %>
+  <div class="blog-image"> 
+   <% if blog.image != 0 %>
+    <%= image_tag blog.image, class: "blog-img" %>
+   <% else %>
+   <%# 画像がない時のイメージ %>
+    <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
+    <% end %>
+   <div class="blog-info">
+    <h3 class="blog-title">
+     <%= blog.title %>
+    </h3>
+   </div>
+  </div>
+ </div>
+ <% end %>
+<% end %>
