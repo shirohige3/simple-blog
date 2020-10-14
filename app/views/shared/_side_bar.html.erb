@@ -1,21 +1,49 @@
 <%# サイドバーコンテンツ %>
  <div class="side-contents">
+  <div class="info">
+   <h3>メニュー<h3>
+  </div>
   <ul class="side-list">
    <% if user_signed_in? %>
-    <li><%= link_to "マイページ", user_path(current_user.id), method: :get  %></li>
-    <li><%= link_to "記事を書く", new_blog_path %></li>
+      <div class="side-menu">
+      <div class="block">
+    <li><%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %></li>
+    </div>
+    <div class="block">
+    <li><%= link_to "記事を書く", new_blog_path, class:"new-blog" %></li>
+   </div>
    <% else %>
-    <li><%= link_to "記事を書く", new_user_session_path %></li>
-   <% end %>
+   <div class="block">
+     <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
+     </div>
+     <div class="block">
+     <%= link_to "ログイン",user_session_path, class:"log-in" %>
+    </div>
+    <% end %>
+   </div>
   </ul>
-  <div class="info">
-   ＜過去投稿記事一覧＞
+ <div class="nav-content">
+  <div class="search-block2">
+   <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
+    <%= f.text_field :keyword, placeholder:"記事検索", class:"search-input2" %>
+    <%= f.submit '検索', class:"search-btn2" %>
+   <% end %>
   </div>
+ </div>
+</div>
+  <%# 下段UI %>
+  <div class="info2">
+   過去投稿記事
+  </div>
+  <% if user_signed_in? %>
    <% @blogs.each do |blog|%>
     <%= link_to blog_path(blog.id) do %>
-    <div class="blog-titles">
+    <div class="block">
+    <div class="blog-name">
      <%= blog.title%>
+     </div>
      </div>
     <% end %>
    <% end %>
+   <%end%>
  </div>

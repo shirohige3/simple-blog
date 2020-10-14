@@ -43,11 +43,6 @@
   text-decoration: none;
   margin: 3 3px;
 }
-.nickname{
-  text-decoration: none;
-  margin-right: 3vw;
-  color: azure;
-}
 .search-block{
 align-items: flex-end;
 }
@@ -72,7 +67,7 @@ align-items: flex-end;
   border        : 1px solid white;    /* 枠の指定 */
   margin-bottom: 3px;
 }
-.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover {
+.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #000066;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
@@ -85,32 +80,77 @@ align-items: flex-end;
   margin-right: 2vw;
 }
 
-.log-out{
+.new-user,.log-in,.log-out,.my-menu,.new-blog,.nickname{
   line-height: 32px;
+  margin-right: 10px;
   color: #333333;
   color: azure;
+  text-decoration: none;
+  font-size: 20px;
 }
-.new-user{
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-  color: azure;
-}
-.log-in{
-  line-height: 32px;
-  color: #333333;
-  color: azure;
-}
+
 /* サイドバーコンテンツ関連 */
 .side-bar{
-  height: 400px;
+  height: 500px;
   width: 15vw;
   text-align: center;
-  background-color: skyblue;
+  background-color: green;
   position: absolute;
   top: 55px;
   left: 1vw;
   position: fixed;
+  border: 2px solid white;
+  box-shadow: 3px 3px 3px black;
+  overflow: auto;
+}
+.info{
+  font-size: 17px;
+  color: white;
+  background-color:#2d7e64 ;
+  border: 2px solid white;
+  margin: 5px;
+  padding: 3px 0;
+}
+.info2{
+  font-size: 17px;
+  color: white;
+  background-color:#2d7e64 ;
+  border: 2px solid white;
+  margin: 30px 5px 5px 5px;
+  padding: 3px 0;
+}
+.block,.search-block2{
+  border-bottom: solid 1px white;
+  margin: 10px 5px;
+}
+.blog-name{
+  line-height: 32px;
+  margin-right: 10px;
+  color: #333333;
+  color: azure;
+  text-decoration: none;
+  font-size: 15px;
+}
+.search-input2{
+  margin-left: 2px;
+  cursor: pointer;
+  height: 30px;
+  width: 10vw;
+}
+.search-btn2{
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 15px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 15px 8px;   /* 余白       */
+  background    : #2d7e64;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 2px;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 1px solid white;    /* 枠の指定 */
+  margin-bottom: 3px;
 }
 
 /* メイン・ブログを展開する部分 */
@@ -118,8 +158,9 @@ align-items: flex-end;
   height: calc(100vh - 80px);
   width: 100vw;
   background-color: greenyellow;
- 
+  overflow: scroll;
 }
+
 .title{
   font-family: sans-serif;
   font-size: 40px;
