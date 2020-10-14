@@ -1,9 +1,21 @@
 <%# サイドバーコンテンツ %>
-
-<div class="side-bar">
  <div class="side-contents">
   <ul class="side-list">
-   <li><%= link_to "マイページ", user_path(current_user.id), method: :get  %></li>
+   <% if user_signed_in? %>
+    <li><%= link_to "マイページ", user_path(current_user.id), method: :get  %></li>
+    <li><%= link_to "記事を書く", new_blog_path %></li>
+   <% else %>
+    <li><%= link_to "記事を書く", new_user_session_path %></li>
+   <% end %>
   </ul>
+  <div class="info">
+   ＜過去投稿記事一覧＞
+  </div>
+   <% @blogs.each do |blog|%>
+    <%= link_to blog_path(blog.id) do %>
+    <div class="blog-titles">
+     <%= blog.title%>
+     </div>
+    <% end %>
+   <% end %>
  </div>
-</div>
