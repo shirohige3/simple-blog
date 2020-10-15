@@ -1,29 +1,17 @@
+ <h1 class="title">新着記事一覧</h1>
 <div class="blog-contents">
-   <h1 class="title">新着記事一覧</h1>
    <%#ブログが存在したらブログ展開%>
-   <ul class="blog-lists">
-  <% if @blogs.size > 0 %> 
-   <%= render "shared/blog"%>
+   <%# <ul class="blog-lists"> %>
+    <% if @blogs.size > 0 %> 
+     <%= render "shared/blog"%>
     <%#blogがまだない時の表示%>
-  <% else %>
-   <div class="blog-list">
-    <div class="blog-image">
+    <% else %>
+     <div class="blog-list">
+      <div class="blog-image">
         <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
-    
-    </div>
-     <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
-   </div>
-  <% end %>
-  </ul>
-  </div>
-  <div class="post-content">
-  <% if user_signed_in? %>
-    <div class="post">
-     <%= link_to "記事を書く", new_blog_path, class:"post-btn" %>
-    </div>
-   <% else %>
-    <div class="post">
-     <%= link_to "記事を書く", new_user_session_path, class:"post-btn"%>
-    </div>
-   <% end %>
+      </div>
+      <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
+     </div>
+    <% end %>
+   <%# </ul> %>
 </div>

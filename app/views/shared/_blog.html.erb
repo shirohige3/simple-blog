@@ -1,28 +1,25 @@
 <%# ブログの検索結果を表示する %>
 <% @blogs.each do |blog| %>
-
-    <li class="list">
-      <%= link_to blog_path(blog.id) do %>
-      <div class="blog-lists">
-       <div class="blog-image"> 
+    <%= link_to blog_path(blog.id) do %>
+      <div class="blog-block">
         <% if blog.image.present? %>
          <%= image_tag blog.image, class: "blog-img" if blog.image.attached? %>
         <% else %>
          <%= image_tag "no-image.jpeg", class: "blog-img"%>
         <% end %>
          <div class="blog-info">
-          <h3 class="blog-title">
-           <%= blog.title %>
-          </h3>
-          <h3 class="blog-user">
-           <%= blog.user.nickname %>
-          </h3>
-          <h3 class="blog-time">
-           <%= blog.created_at %>
-          </h3>
+          <li class="list">
+           <div class="blog-title">
+            <%= blog.title %>
+           </div>
+            <div class="blog-user">
+             <%= blog.user.nickname %>
+            </div>
+             <div class="blog-time">
+              <%= blog.created_at %>
+             </div>
+          </li>
          </div>
-         </div>
+        </div>
       <% end %>
-    </li>
-
 <% end %>

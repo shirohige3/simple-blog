@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.includes(:blog).order("created_at DESC")
-    @blogs = user.blogs
+    @blogs = User.blogs
   end
 
   def new

@@ -8,11 +8,11 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new(user_id: current_user.id)
+    @blogs = Blog.where(id: params[:id])     # サイドバーに対してblogのidを配列として送る
   end
 
   def create
     @blog = Blog.new(blog_params)
-    # binding.pry
     if @blog.valid?
       @blog.save
       redirect_to root_path
@@ -54,6 +54,7 @@ class BlogsController < ApplicationController
 
      def set_blog
       @blog = Blog.find(params[:id])
+      @blogs = Blog.where(id: params[:id])
      end
 
      def move_to_index
