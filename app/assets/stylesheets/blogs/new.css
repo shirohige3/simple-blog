@@ -6,53 +6,94 @@
   align-items: center;
   text-align: center;
 }
+.blog-head{
+  display: flex;
+  width: 40vw;
+  height: 65px;
+  margin-left: 390px;}
 
+.blog-title2.img-text{
+  font-size: 20px;
+  margin-left: 8px;
+}
 .title-area{
-  height: 3vh;
-  width: 20vw;
-margin: 0 40px;
+  height: 3.5vh;
+  width: 30vw;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .title-box{
   display: flex;
 }
+.img-upload{
+  margin-top: 5px;
+}
 
 .blog-report{
+  font-size: 20px;
  margin: 20px 0;
  padding: 3px;
  border: 1px solid black ; 
+ width: calc(100% - 3vw);
+ height: 88vh;
+ overflow: scroll;
 }
 .blog-form{
-  height: 60vh;
-  width: 44vw;
+  height: 65vh;
+  width: 45vw;
   padding: 16px 16px 8px;
   border: 1px solid #ccc;
   font-size: 16px;
+  overflow: auto;
+  margin: 0 15px 0;
+  cursor: pointer;
 }
-
-.contribute-btn{
-  background-color: cornsilk;
-  padding: 1vh 5vw;
-  font-size: 20px;
-  margin: 1vh;
+.blog-contents2{
+  height: 82vh;
+  width: calc(100% - 50vw);
+  /* flex-wrap: wrap;                 記事折り返し用 */
+  /* justify-content:center; */
+  background-color: whitesmoke;
+  margin: 7px 20vw;
+  margin-left: auto;margin-right: auto;
 }
-
-.edit-btn{
-    text-align: center;
-    border: 1px solid black;
-    color: #333333;
-    background-color: rgb(168, 39, 39);
-    font-size: 30px;
-    margin: 20px 0px;
-    padding: 1vh 3vw;
-}
-
-.delete-btn{
-  text-align: center;
-  border: 1px solid black;
-  color: #333333;
-  background-color: rgb(99, 89, 89);
+.blog-contribute{
   font-size: 30px;
-  margin: 20px 0px;
-  padding: 1vh 3vw;
+  margin-left: 20px;
+}
+.action-btns{
+  margin-left: 100px;
+}
+.contribute-btn,.contribute-btn2{
+  background-color: rgba(17, 161, 53, 0.85);
+  padding: 3vh 3vw;
+  font-size: 20px;
+  margin-left: 2vw;
+  cursor: pointer;
+  color: black;
+}
+.contribute-btn{
+  background-color: cyan;
+  padding: 3vh 5vw;
+}
+/* show用CS */
+.head-index{
+  height: 110px;
+  width: 100vw;
+  /* background-color: green; */
+  /* background-color: black; */
+  /* blog-image{
+ object-fit: contain; */
+ }
+.title-index{
+  /* color: white; */
+  font-size: 80px;
+  text-align: center;
+}
+.blog-img2{
+  object-position: left;
+  object-fit: cover;
+  height: 100px;
+  width: 100vw;
 }

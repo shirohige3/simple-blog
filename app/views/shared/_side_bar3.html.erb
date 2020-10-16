@@ -1,4 +1,4 @@
-<%# サイドバーコンテンツ %>
+<%# 記事作成ページ対応サイドバーコンテンツ %>
  <div class="side-contents">
   <div class="info">
    <h3>メニュー<h3>
@@ -33,20 +33,7 @@
   </div>
  </div>
 </div>
+
   <%# 下段UI %>
-  <div class="info2">
-   過去投稿記事
-  </div>
-  <%# <自分のブログだけを表示したいが未定&& @blogs.ids(user_id: current_user.id)> %>
-  <% if user_signed_in?  %>
-   <% @blogs.each do |blog|%>
-    <%= link_to blog_path(blog.id) do %>
-    <div class="block">
-    <div class="blog-name">
-     <%= blog.title%>
-     </div>
-     </div>
-    <% end %>
-   <% end %>
-   <%end%>
- </div>
+  <%# オプション関係を入れたい %>
+</div>

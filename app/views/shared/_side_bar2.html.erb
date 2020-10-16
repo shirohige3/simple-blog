@@ -1,6 +1,4 @@
-<%# eachが使えないところよう %>
-
-<%# サイドバーコンテンツ %>
+<%# 個人ページ対応サイドバーコンテンツ %>
  <div class="side-contents">
   <div class="info">
    <h3>メニュー<h3>
@@ -22,6 +20,8 @@
      <%= link_to "ログイン",user_session_path, class:"log-in" %>
     </div>
     <% end %>
+    <div class="block">
+     <li><%= link_to "一覧へ戻る", root_path, class:"root-index"%>
    </div>
   </ul>
  <div class="nav-content">
@@ -33,20 +33,66 @@
   </div>
  </div>
 </div>
+
   <%# 下段UI %>
-  <div class="info2">
-   過去投稿記事
-  </div>
   <%# <自分のブログだけを表示したいが未定&& @blogs.ids(user_id: current_user.id)> %>
-  <% if user_signed_in?  %>
-   <% @blogs.each do |blog|%>
-    <%= link_to blog_path(blog.id) do %>
-    <div class="block">
-    <div class="blog-name">
-     <%= blog.title%>
-     </div>
-     </div>
-    <% end %>
-   <% end %>
-   <%end%>
+  <div class="edit-block">
+   <% if user_signed_in? && current_user.id == @blog.user_id  %>
+    <div class="info2">
+      編集or削除
+    </div>
+     <%= link_to "編集する", edit_blog_path, class:"edit-btn"%>
+     <%= link_to "削除する", blog_path, method: :delete, class:"delete-btn"%>
+   </div>
+    <div class="blog-comment">
+      <h4> コメント一覧  </h4>
+   </div>
+    <div class="comments">
+      <% if @comments %>
+       <% @comments.each do |comment| %>
+        <p>
+         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>:</strong>
+         <%= comment.text %>
+         <%#= comment.created_at %>
+        </p>
+       <% end %>
+      <% end %>
+    </div>
+
+   <%else%>
+   <%# その人の別のブログ記事へ飛べるorコメントする %>
+    <div class="blog-comment">
+      <h4> コメント投稿 </h4>
+    </div>
+   <div class="comment-form">
+    <%= form_with(model: [@blog, @comment], local: true) do |f| %>
+     <%= f.text_area :text, placeholder: "コメントする", rows: "2" ,class:"comment-input"%>
+     <%= f.submit "投稿する", class:"comment-btn" %>
+   <% end %> 
+   </div>
+   <div class="blog-comment">
+      <h4> コメント一覧  </h4>
+   </div>
+    <div class="comments">
+      <% if @comments %>
+       <% @comments.each do |comment| %>
+        <p>
+         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>:</strong>
+         <%= comment.text %>
+         <%#= comment.created_at %>
+        </p>
+       <% end %>
+      <% end %>
+    </div>
+    <%# 他の記事にとべる設定        設定途中 %>
+   <div class="links">
+    <a href="#" class="change-blog-btn">
+      ＜ 前の記事
+    </a>
+    <a href="#" class="change-blog-btn">
+      後ろの記事 ＞
+    </a>
+   </div>
+  <%end%>
  </div>
+</div>
