@@ -17,7 +17,7 @@ a {
   font-size: 30px;
 }
 .header{
- height: 50px;
+ height: 60px;
  width: 100vw;
  background-color: green;
  display: flex;
@@ -69,7 +69,7 @@ align-items: flex-end;
   border        : 1px solid white;    /* 枠の指定 */
   margin-bottom: 3px;
 }
-.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover, .root-index:hover,.comment-btn:hover {
+.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover, .root-index:hover,.comment-btn:hover,.return-btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #000066;     /* 文字色     */
   background    : #ffffff;     /* 背景色     */
@@ -79,7 +79,7 @@ align-items: flex-end;
   color: white;
   background: red;
 }
-.edit-btn:hover,.contribute-btn2:hover{
+.edit-btn:hover,.contribute-btn2:hover,.registration-btn:hover,.session-btn:hover{
   box-shadow    : none;
   color: white;
   background: blue;
@@ -95,7 +95,7 @@ align-items: flex-end;
 .edit-block{
   justify-content: space-between;
 }
-.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2{
+.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2,.registration-btn,.session-btn{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 22px;        /* 文字サイズ */
@@ -110,7 +110,21 @@ align-items: flex-end;
   border        : 1px solid white;    /* 枠の指定 */
   margin-bottom: 3px;
 }
-
+.registration-btn,.session-btn{
+ background-color: red;
+ width: 14vw;
+ margin-bottom: 20px;
+ margin-top: 20px;
+}
+.return-btn{
+  border-radius: 5%;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: cornsilk;
+    border: solid 1px ;
+    padding: 1vh 5vw;
+    color: black;
+}
 .new-user,.log-in,.log-out,.my-menu,.new-blog,.nickname,.root-index{
   line-height: 32px;
   margin-right: 10px;
@@ -119,7 +133,6 @@ align-items: flex-end;
   text-decoration: none;
   font-size: 20px;
 }
-
 /* サイドバーコンテンツ関連 */
 .side-bar{
   height: 650px;
@@ -128,7 +141,7 @@ align-items: flex-end;
   background-color: green;
   position: absolute;
   top: 120px;             /* (headerとの差は55px) */
-  left: 1vw;
+  left: 3.5vw;
   position: fixed;
   border: 2px solid white;
   box-shadow: 3px 3px 3px black;
@@ -209,10 +222,10 @@ align-items: flex-end;
   margin-top: 10px;
 }
 /* メイン・ブログを展開する部分 */
-.main-content{
+.main-content,.main-content3{
   height: calc(100vh - 80px);
   width: 100vw;
-  background-color: greenyellow;
+  background-color: white;
   overflow: auto;
 }
 
@@ -220,34 +233,36 @@ align-items: flex-end;
   font-family: sans-serif;
   font-size: 40px;
   /* 記事一覧に陰影表示 */
-  text-shadow: 4px 3px ivory, 4px 4px  green; 
-  margin-left: 20vw;
+  text-shadow: 4px 3px white, 4px 4px  green; 
+  margin-left: 25vw;
 }
 .blog-contents{
-  height: 90vh;
-  width: calc(100% - 25vw);
+  height: 82vh;
+  width: calc(100% - 50vw);
   display: flex;
   flex-wrap: wrap;                 /* 記事折り返し用 */
   justify-content:center;
-  background-color: whitesmoke;
-  margin: 7px 20vw;
+  background-color: cornsilk;
+  margin-left: auto;margin-right: auto;
+  border: black 2px double;
   overflow: auto;
 }
 
 
 .blog-block{
-  height: 37vh;
-  width:22vw;
+  height: 17.5vh;
+  width:47vw;
+  display: flex;
   background-color: white;
-  justify-content: space-between;
-  margin: 10px 5px;
-  border: solid grey 1px;
+  margin: 5.5px;
+  padding: 5px;
+  border-top: solid grey 1px;
+  border-bottom:solid grey 1px ;
   overflow: hidden;
 }
-
 .blog-img{
-  height: 24vh;
-  width: 17vw;
+  height: 16vh;
+  width: 10vw;
   object-fit: contain;   /*  画像嵌め込みしき*/
   padding: 0 35px;
 
@@ -268,9 +283,7 @@ align-items: flex-end;
   height: 12vh;
   width: 17vw;
   margin-right: auto;
-
 }
-
 .list{
   list-style: none;
   margin-right: auto;

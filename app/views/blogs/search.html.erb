@@ -1,6 +1,14 @@
 <%# 検索ページ %>
 <%= render "shared/header"%>
-    
-<div class="blog-contents">
-  <%= render partial:"/shared/blog", locals:{blog: @blogs} %>
+ <div class="side-bar">
+  <%= render "shared/side_bar"%>
+ </div>
+
+<div class="main-content">
+ <div class="title">
+  <h3>search index</h3>
+ </div>
+  <div class="blog-contents">
+   <%= render partial:"/shared/blog", locals:{blog: @blogs} %>
+  </div>
 </div>

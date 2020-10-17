@@ -1,7 +1,6 @@
- <h1 class="title">新着記事一覧</h1>
+ <h1 class="title">New Blogs Index</h1>
 <div class="blog-contents">
    <%#ブログが存在したらブログ展開%>
-   <%# <ul class="blog-lists"> %>
     <% if @blogs.size > 0 %> 
      <%= render "shared/blog"%>
     <%#blogがまだない時の表示%>
@@ -13,5 +12,4 @@
       <h2>さぁ、あなたのブログを投稿していきましょう！</h2>
      </div>
     <% end %>
-   <%# </ul> %>
 </div>

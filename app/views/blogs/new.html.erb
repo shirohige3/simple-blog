@@ -26,19 +26,19 @@
       <%= f.file_field :image, id:"blog-image"%>
     </div>
   </div>
-  </div>
+ </div>
   <%# アイコンの類（取り敢えず並べたい） %>
-<div class="blog-contents2">
-    <%# 記事内容投稿フォーム %>
-    <div class="blog-contribute">
-     <%= f.label :投稿内容作成 %><br />
-    </div>
-     <%= f.text_area :text, class:"blog-form", id:"text", placeholder:"記事内容"%>
-    <%# ボタン %>
-    <div class="action-btns">
-          <%= f.submit "投稿する", class:"contribute-btn"%>
-      <%= f.submit "下書き保存", class:"contribute-btn2"%>
+ <div class="blog-contents2">
+     <%# 記事内容投稿フォーム %>
+     <div class="blog-contribute">
+      <%= f.label :投稿内容作成 %><br />
      </div>
-  <% end %>
+      <%= f.text_area :text, class:"blog-form", id:"text", placeholder:"記事内容"%>
+     <%# ボタン %>
+     <div class="action-btns">
+           <%= f.submit "投稿する", class:"contribute-btn"%>
+       <%= f.submit "下書き保存", class:"contribute-btn2"%>
+     </div>
+   <% end %>
  </div>
 </div>
