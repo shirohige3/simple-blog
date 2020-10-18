@@ -34,7 +34,7 @@ Things you may want to cover:
 | introduction     | text       |                  |
 | full_name        | string     | null: false      |
 | full_name_kana   | string     | null: false      |
-| birth_date       | date       | null: false      |
+| birth_date       | date       |                  |
 ### Association
 - has_many         :blogs
 - has_many         :comments

@@ -79,7 +79,7 @@ align-items: flex-end;
   color: white;
   background: red;
 }
-.edit-btn:hover,.contribute-btn2:hover,.registration-btn:hover,.session-btn:hover{
+.edit-btn:hover,.contribute-btn2:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover{
   box-shadow    : none;
   color: white;
   background: blue;
@@ -95,7 +95,7 @@ align-items: flex-end;
 .edit-block{
   justify-content: space-between;
 }
-.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2,.registration-btn,.session-btn{
+.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 22px;        /* 文字サイズ */
@@ -110,11 +110,14 @@ align-items: flex-end;
   border        : 1px solid white;    /* 枠の指定 */
   margin-bottom: 3px;
 }
-.registration-btn,.session-btn{
+.registration-btn,.session-btn,.update-btn{
  background-color: red;
  width: 14vw;
  margin-bottom: 20px;
  margin-top: 20px;
+}
+.update-btn{
+  margin-top: 10px;
 }
 .return-btn{
   border-radius: 5%;
@@ -239,9 +242,6 @@ align-items: flex-end;
 .blog-contents{
   height: 82vh;
   width: calc(100% - 50vw);
-  display: flex;
-  flex-wrap: wrap;                 /* 記事折り返し用 */
-  justify-content:center;
   background-color: cornsilk;
   margin-left: auto;margin-right: auto;
   border: black 2px double;
@@ -255,6 +255,7 @@ align-items: flex-end;
   display: flex;
   background-color: white;
   margin: 5.5px;
+  margin-left: auto;margin-right: auto;
   padding: 5px;
   border-top: solid grey 1px;
   border-bottom:solid grey 1px ;

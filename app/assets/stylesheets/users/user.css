@@ -1,4 +1,4 @@
-.new-user-head{
+.new-user-head,.new-user-head2{
   height: 7vh;
   width: 40vw;
   font-size: 40px;
@@ -25,12 +25,11 @@
   height: 40vh;
   padding: 40px 0;
 }
-.user-contents,.user-contents2{
+.user-contents,.user-contents2,.user-contents3{
   height: 74vh;
   width: 45vw;
   background-color:white;
  margin-left: auto;margin-right: auto;
-
  padding: 5px;
  border: 1px solid black;
 }
@@ -38,12 +37,17 @@
   height: 37vh;
   padding: 10px 0;
   margin-left: auto;margin-right: auto;
+}
+.user-contents3{
+  height: 78vh;
+  margin-top: 1.5vh;
+}
 
-}
 .title2{
-  font-size: 20px;
-  margin-top: 5px;
-}
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
 .field{
   width: 40vw;
   font-size: 17px;
@@ -55,6 +59,7 @@
 .input-area{
   width: 40vw;
   padding: 5px ;
+  cursor: pointer;
 }
 .essential{
   color: white;
@@ -64,9 +69,15 @@
 .birth-date{
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-
+.introduction{
+  width: 40vw;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  overflow: auto;
+  cursor: pointer;
+}
 .change-blog-btn{
   text-decoration: none;
   margin: 3vh 3vw;
