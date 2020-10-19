@@ -30,11 +30,12 @@ class UsersController < ApplicationController
    end
   end
 
+  #うまくviewが機能していない？？
   def update
     if @user.update
       redirect_to user_edit_path
     else
-      render :edit
+      render "users#show"
     end
   end
 

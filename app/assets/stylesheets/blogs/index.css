@@ -52,7 +52,7 @@ align-items: flex-end;
   margin: 0 0 5px 15px;
   cursor: pointer;
   height: 30px;
-  width: 30vw;
+  width: 35vw;
 }
 .search-btn{
   display       : inline-block;
@@ -182,7 +182,7 @@ align-items: flex-end;
   margin-left: 2px;
   cursor: pointer;
   height: 30px;
-  width:13vw;
+  width:10vw;
 }
 .search-btn2{
   display       : inline-block;
@@ -308,10 +308,11 @@ align-items: flex-end;
 
 /* フッターコンテンツ */
 .footer{
-  height: 30px;
+  height: 50px;
   width:  100vw;
-  background-color: aquamarine;
+  background-color: black;
 }
 .side_item{
   background-color: black;
 }
+
