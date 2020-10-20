@@ -2,10 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
+    @comments = @blog.comments.includes(:user)
     if @comment.valid?
     redirect_to "/blogs/#{@comment.blog.id}"
     else
-      render :show
+      redirect_to root_path                  #一旦、indexへ飛びます
     end
   end
 

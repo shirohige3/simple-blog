@@ -1,7 +1,7 @@
 class Blog < ApplicationRecord
-  has_many   :comments
+  has_many   :comments, dependent: :destroy
   belongs_to :user
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 
   with_options presence: true do
   validates :title
