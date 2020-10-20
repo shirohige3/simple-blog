@@ -22,13 +22,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-   if @user.destroy
-      redirecto_to root_path
-   else
-      render :show
-   end
-  end
+  # def destroy
+  #  if @user.destroy
+  #     redirecto_to root_path
+  #  else
+  #     render :show
+  #  end
+  # end
 
   # def update
   #   if @user.update

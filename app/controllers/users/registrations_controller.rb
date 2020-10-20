@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if @user.update(account_update_params)
       redirect_to user_edit_path
     else
-      render "users#show"
+      render :edit
     end
   end
 

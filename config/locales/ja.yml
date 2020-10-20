@@ -1,0 +1,14 @@
+# デバイス翻訳用
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       full_name: 名前
+       full_name_kana: 名前(カタカナ)
+       email: メールアドレス
+       password: パスワード
+       password_confirametion: パスワードを再入力
+     blog:
+       text: 記事内容
+       title: タイトル
