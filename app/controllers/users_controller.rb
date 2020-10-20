@@ -30,14 +30,13 @@ class UsersController < ApplicationController
    end
   end
 
-  #うまくviewが機能していない？？
-  def update
-    if @user.update
-      redirect_to user_edit_path
-    else
-      render "users#show"
-    end
-  end
+  # def update
+  #   if @user.update
+  #     redirect_to user_edit_path
+  #   else
+  #     render "users#show"
+  #   end
+  # end
 
   def show
     @blogs = current_user.blogs

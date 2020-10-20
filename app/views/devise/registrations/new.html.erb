@@ -11,40 +11,40 @@
   
   <div class="user-contents">
    <%= form_with model:@user, url: user_registration_path, class: 'registration', local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
+    <%= render "devise/shared/error_messages", resource: @user %>
+ <%#= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
-      <%= f.label :ニックネーム（最大文字数は10文字） %>
+      <%= f.label :nickname, "ニックネーム（最大文字数は10文字）" %>
       <span class="essential">必須</span><br />
       <%= f.text_field :nickname, class:"input-area", id: "nickname", placeholder:"例)ヤマダー" %>
     </div>
 
    <div class="field">
-     <%= f.label :名前 %>
+     <%= f.label :full_name, "名前" %>
       <span class="essential">必須</span><br />
       <%= f.text_field :full_name, class:"input-area", id: "full_name", placeholder:"例)山田太郎" %>
    </div>
 
     <div class="field">
-     <%= f.label :名前カナ %>
+     <%= f.label :full_name_kana, "名前カナ" %>
       <span class="essential">必須</span><br />
       <%= f.text_field :full_name_kana, class:"input-area", id: "full_name_kana", placeholder:"例)ヤマダタロウ" %>
    </div>
 
     <div class="field">
-     <%= f.label :メールアドレス %>
+     <%= f.label :email, "メールアドレス" %>
       <span class="essential">必須</span><br />
       <%= f.email_field :email, class:"input-area", id: "email", placeholder:"@を含むメールアドレス" %>
     </div>
 
     <div class="field">
-     <%= f.label :パスワード %>
+     <%= f.label :password, "パスワード" %>
       <span class="essential">必須</span><br />
       <%= f.password_field :password, class:"input-area", id: "password", placeholder:"6文字以上の半角英数字" %>
     </div>
 
     <div class="field">
-     <%= f.label :パスワードの確認 %>
+     <%= f.label :password_confirmation, "パスワードの確認" %>
       <span class="essential">必須</span><br />
       <%= f.password_field :password_confirmation, class:"input-area", id: "password-confirmation", placeholder:"passwordを再入力" %>
     </div>

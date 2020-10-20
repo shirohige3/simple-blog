@@ -7,6 +7,7 @@ class User < ApplicationRecord
          has_many :blogs
          has_many :comments
          has_one_attached :image
+         attr_accessor :current_password
 
          validates :nickname,       presence: true, length:{maximum: 10}
 

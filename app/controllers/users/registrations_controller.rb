@@ -5,34 +5,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource
   # def create
   #   super
   # end
 
-  GET /resource/edit
-  def edit
-    super
-  end
+  # GET /resource/edit
+  # def edit
+    # super
+  # end
 
-  PUT /resource
+  # PUT /resource
   def update
-      super
-    if @user.update
+      if @user.update(account_update_params)
       redirect_to user_edit_path
     else
       render "users#show"
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-    @blogs = current_user.blogs
-  end
 
   # DELETE /resource
   # def destroy
@@ -57,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    devise_parameter_sanitizer.permit( :account_update, keys:[:nickname, :email, :password, :birth_date, :introduction])
   end
 
   # The path used after sign up.
