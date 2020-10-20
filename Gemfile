@@ -13,7 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# links makes navigating your web application faster. Read more: https://github.com/links/links
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
@@ -43,6 +43,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop', require: false
 end
 
 group :test do
@@ -59,4 +60,6 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
+gem'image_processing', '~> 1.2'
+gem 'devise-i18n'
+gem 'devise-i18n-views'

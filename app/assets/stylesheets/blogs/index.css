@@ -1,103 +1,275 @@
 .wrapper{
-  background-color: black;
-  align-items: center;
+  background-color: white;
+  /* align-items: center; */
+  position: relative;
+}
+a {
+  text-decoration: none;
 }
 /* ヘッダーコンテンツ関連 */
-.title1{
+.title-block{
   font-size: 20px;
+  color: white;
+  margin: 10px 0;
+}
+.s{
+  color: red;
+  font-size: 30px;
 }
 .header{
- height: 50px;
+ height: 60px;
  width: 100vw;
- background-color: azure;
+ background-color: green;
  display: flex;
  justify-content: space-between;
+ /* position: absolute; */
+}
+.header-left{
+  width: 60%;
+  margin-left: 10px;
+  display: flex;
+  align-items: flex-end;
 }
 .user-list{
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+  margin-bottom: 3px;
+}
+.header-right{
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 3px;
 }
 .icon{
   text-decoration: none;
-  margin: 0 3px;
-}
-.nickname{
-  text-decoration: none;
-  margin-right: 3vw;
+  margin: 3 3px;
 }
 .search-block{
 align-items: flex-end;
 }
 .search-input{
-  margin: 0 40px;
+  margin: 0 0 5px 15px;
+  cursor: pointer;
+  height: 30px;
+  width: 35vw;
+}
+.search-btn{
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 17px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 15px 12px;   /* 余白       */
+  background    : #2d7e64;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 2px;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 1px solid white;    /* 枠の指定 */
+  margin-bottom: 3px;
+}
+.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover, .root-index:hover,.comment-btn:hover,.return-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 文字色     */
+  background    : #ffffff;     /* 背景色     */
+}
+.delete-btn:hover,.contribute-btn:hover{
+  box-shadow    : none;
+  color: white;
+  background: red;
+}
+.edit-btn:hover,.contribute-btn2:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover{
+  box-shadow    : none;
+  color: white;
+  background: blue;
 }
 .sign-in{
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
   margin-right: 20px;
-  padding-right: 20px;
-}
-.log-out{
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-}
-.new-user{
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-}
-.log-in{
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-}
-/* サイドバーコンテンツ関連 */
-.footer{
-  height: 30px;
-  width:  100vw;
-  background-color: skyblue;
-}
-.side_item{
-  background-color: black;
+  padding-right: 8px;
+  margin-right: 2vw;
 }
 
-/* ブログを展開する部分 */
-.main-content{
+.edit-block{
+  justify-content: space-between;
+}
+.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn{
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 22px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 20px 17px;   /* 余白       */
+  background    : #2d7e64;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 3px;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 1px solid white;    /* 枠の指定 */
+  margin-bottom: 3px;
+}
+.registration-btn,.session-btn,.update-btn{
+ background-color: red;
+ width: 14vw;
+ margin-bottom: 20px;
+ margin-top: 20px;
+}
+.update-btn{
+  margin-top: 10px;
+}
+.return-btn{
+  border-radius: 5%;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: cornsilk;
+    border: solid 1px ;
+    padding: 1vh 5vw;
+    color: black;
+}
+.new-user,.log-in,.log-out,.my-menu,.new-blog,.nickname,.root-index{
+  line-height: 32px;
+  margin-right: 10px;
+  color: #333333;
+  color: azure;
+  text-decoration: none;
+  font-size: 20px;
+}
+/* サイドバーコンテンツ関連 */
+.side-bar{
+  height: 650px;
+  width: 17vw;
+  text-align: center;
+  background-color: green;
+  position: absolute;
+  top: 120px;             /* (headerとの差は55px) */
+  left: 3.5vw;
+  position: fixed;
+  border: 2px solid white;
+  box-shadow: 3px 3px 3px black;
+  overflow: auto;
+}
+.info,.blog-comment{
+  font-size: 17px;
+  color: white;
+  background-color:#2d7e64 ;
+  border: 2px solid white;
+  margin: 5px;
+  padding: 3px 0;
+}
+.info2{
+  font-size: 17px;
+  color: white;
+  background-color:#2d7e64 ;
+  border: 2px solid white;
+  margin: 30px 5px 5px 5px;
+  padding: 3px 0;
+}
+.block,.search-block2{
+  border-bottom: solid 1px white;
+  margin: 10px 5px;
+}
+.blog-name{
+  line-height: 32px;
+  margin-right: 10px;
+  color: #333333;
+  color: azure;
+  text-decoration: none;
+  font-size: 15px;
+}
+.search-input2{
+  margin-left: 2px;
+  cursor: pointer;
+  height: 30px;
+  width:10vw;
+}
+.search-btn2{
+  display       : inline-block;
+  border-radius : 4%;          /* 角丸       */
+  font-size     : 14px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 15px 5px;   /* 余白       */
+  background    : #2d7e64;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 2px;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 1px solid white;    /* 枠の指定 */
+  margin-bottom: 3px;
+}
+.edit-block{
+  border-bottom: white 1px solid;
+  margin: 0px 5px 25px;
+}
+
+.comment-input{
+  margin-top: 2px;
+  width: 15vw;
+  cursor: pointer;
+}
+.comments,.comment-user{
+  color: white;
+  text-align: left;
+}
+.comment-btn{
+  font-size: 15px;
+  padding: 15px 20px;
+  margin: 0 5px 3px;
+}
+.comment-form{
+  border-bottom: solid 1px white;
+}
+.blog-comment{
+  margin-top: 10px;
+}
+/* メイン・ブログを展開する部分 */
+.main-content,.main-content3{
   height: calc(100vh - 80px);
   width: 100vw;
-  background-color: cornsilk;
+  background-color: white;
+  overflow: auto;
 }
+
 .title{
   font-family: sans-serif;
-  font-size: 60px;
+  font-size: 40px;
   /* 記事一覧に陰影表示 */
-  text-shadow: 3px 3px ivory, 4px 4px 0 #5d6f77; 
+  text-shadow: 4px 3px white, 4px 4px  green; 
+  margin-left: 25vw;
 }
 .blog-contents{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
+  height: 82vh;
+  width: calc(100% - 50vw);
+  background-color: cornsilk;
+  margin-left: auto;margin-right: auto;
+  border: black 2px double;
+  overflow: auto;
 }
-.blog-list {
-  width: 100vw;
+
+
+.blog-block{
+  height: 17.5vh;
+  width:47vw;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.blog-image-items{
-  position: relative;
+  background-color: white;
+  margin: 5.5px;
+  margin-left: auto;margin-right: auto;
+  padding: 5px;
+  border-top: solid grey 1px;
+  border-bottom:solid grey 1px ;
+  overflow: hidden;
 }
 .blog-img{
-  height: 35vh;
-  width: 50vh;
+  height: 16vh;
+  width: 10vw;
+  object-fit: contain;   /*  画像嵌め込みしき*/
+  padding: 0 35px;
+
 } 
 .post{
   padding: 50px;
-
 }
 .post-btn{
   text-align: center;
@@ -108,34 +280,39 @@ align-items: flex-end;
   margin: 20px 0px;
   padding: 1vh 3vw;
 }
+.blog-info{
+  height: 12vh;
+  width: 17vw;
+  margin-right: auto;
+}
+.list{
+  list-style: none;
+  margin-right: auto;
+}
 .blog-title{
-
-  font-size: 20px;
-  
+  color: #333333;
+  font-size: 21px;
+  margin-left: 3px;
+  margin-bottom: 5px;
+  margin-right: auto;
+  text-align: left;
+}
+.blog-user,.blog-time{
+  font-size: 13px;
+  color: #333333;
+  margin-left: 3px;
+  margin-bottom: 2px;
+  margin-right: auto;
+  text-align: left;   /*画像を左寄せ*/
 }
 
+/* フッターコンテンツ */
+.footer{
+  height: 50px;
+  width:  100vw;
+  background-color: black;
+}
+.side_item{
+  background-color: black;
+}
 
-
-
-
-
-
-<% @blogs.each do |blog| %>
-<div class="blog_image_content">
- <%= link_to blog_path(blog.id) do %>
-  <div class="blog-image"> 
-   <% if blog.image != 0 %>
-    <%= image_tag blog.image, class: "blog-img" %>
-   <% else %>
-   <%# 画像がない時のイメージ %>
-    <%= link_to image_tag "neco.jpeg", class: "blog-img"%>
-    <% end %>
-   <div class="blog-info">
-    <h3 class="blog-title">
-     <%= blog.title %>
-    </h3>
-   </div>
-  </div>
- </div>
- <% end %>
-<% end %>

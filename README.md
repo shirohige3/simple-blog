@@ -34,7 +34,7 @@ Things you may want to cover:
 | introduction     | text       |                  |
 | full_name        | string     | null: false      |
 | full_name_kana   | string     | null: false      |
-| birth_date       | date       | null: false      |
+| birth_date       | date       |                  |
 ### Association
 - has_many         :blogs
 - has_many         :comments
@@ -82,3 +82,51 @@ Things you may want to cover:
 ### Association
 - belongs_to :blog
 - belongs_to :tag
+
+#アプリケーション名
+simple-blog
+
+#アプリケーション概要
+*ブログ記事投稿サイトです。
+*ユーザーの登録・登録内容の変更が若干できます。
+*ブログ記事を投稿・編集・削除・またブログ記事に対してコメントができます。
+
+#URL
+
+#テスト用アカウント
+##test-user1
+*email:    tanaka12@gmail.com
+*password: tanaka12
+
+##test-user2
+*email:   suzuki12@gmail.com
+*pasword: suzuki12
+
+#利用方法
+##header
+*記事検索はタイトルを入れることで記事を検索できます。
+*『新規登録』はユーザーを新しく登録できます。『ログイン』は既に登録してあるユーザーでログインできます。
+*ユーザーがログインしている状態だと『ユーザー名』はマイページへ遷移できます。『ログアウト』はログインしているユーザーをログアウトさせます。
+#side-bar
+*記事を書くから記事の投稿ができます。
+*
+*
+*
+*
+*
+*
+*
+
+
+
+#目指した課題解決
+
+#洗い出した要件
+
+#実装した機能についてのGIFと説明
+
+#実装予定の機能
+
+#ローカルでの動作方法
+
+

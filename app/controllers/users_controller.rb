@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :destroy, :edit]
-  before_action :move_to_index, only:[:show, :edit]
-
+  before_action :set_user, only: %i[show destroy edit]
+  before_action :move_to_index, only: %i[show edit]
 
   def index
-    @users = User.includes(:blog).order("created_at DESC")
-    @blogs = user.blogs
+    @users = User.includes(:blog).order('created_at DESC')
+    # @blogs = User.blogs
   end
 
   def new
@@ -22,38 +21,37 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-   if @user.destroy
-      redirecto_to root_path
-   else
-      render :show
-   end
-  end
+  # def destroy
+  #  if @user.destroy
+  #     redirecto_to root_path
+  #  else
+  #     render :show
+  #  end
+  # end
 
-  def update
-    if @user.update
-      redirect_to user_edit_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @user.update
+  #     redirect_to user_edit_path
+  #   else
+  #     render "users#show"
+  #   end
+  # end
 
   def show
     @blogs = current_user.blogs
   end
 
+  private
 
-    private
-    def user_params
-      params.require(:user).permit(:nickname, :email, :password, :full_name, :full_name_kana, :birth_date, :introduction, :image).merge(blog_id: blog.id)
-    end
-   
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password, :full_name, :full_name_kana, :birth_date, :introduction, :image).merge(blog_id: blog.id)
+  end
 
-    def move_to_index
-      redirecto_to root_path unless (user_signed_in? ||  @user.id == current_user.id)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
+  def move_to_index
+    redirecto_to root_path unless user_signed_in? || @user.id == current_user.id
+  end
 end
