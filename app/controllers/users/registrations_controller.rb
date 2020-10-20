@@ -16,18 +16,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   # def edit
-    # super
+  # super
   # end
 
   # PUT /resource
   def update
-      if @user.update(account_update_params)
+    if @user.update(account_update_params)
       redirect_to root_path
     else
       render :edit
     end
   end
-
 
   # DELETE /resource
   # def destroy
@@ -52,7 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit( :account_update, keys:[:nickname, :email, :password, :birth_date, :introduction])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[nickname email password birth_date introduction])
   end
 
   # The path used after sign up.

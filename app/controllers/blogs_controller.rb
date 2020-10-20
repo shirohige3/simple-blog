@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only:[:show, :edit, :destroy, :update]
-  before_action :move_to_index, only:[:edit, :new]
+  before_action :set_blog, only: %i[show edit destroy update]
+  before_action :move_to_index, only: %i[edit new]
 
   def index
-    @blogs = Blog.includes(:user).order("created_at DESC")
+    @blogs = Blog.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -46,18 +46,18 @@ class BlogsController < ApplicationController
     @blogs = Blog.search(params[:keyword])
   end
 
+  private
 
-    private
-     def blog_params
-      params.require(:blog).permit(:title, :image, :text, :status, :comment).merge(user_id: current_user.id)
-     end
+  def blog_params
+    params.require(:blog).permit(:title, :image, :text, :status, :comment).merge(user_id: current_user.id)
+  end
 
-     def set_blog
-      @blog = Blog.find(params[:id])
-      @blogs = Blog.where(id: params[:id])
-     end
+  def set_blog
+    @blog = Blog.find(params[:id])
+    @blogs = Blog.where(id: params[:id])
+  end
 
-     def move_to_index
-      redirecto_to root_path unless (user_signed_in? ||  @blog.user.id == current_user.id)
-     end
+  def move_to_index
+    redirecto_to root_path unless user_signed_in? || @blog.user.id == current_user.id
+  end
 end
