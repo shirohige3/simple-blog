@@ -94,11 +94,20 @@ simple-blog
 #URL
 
 #テスト用アカウント
-*email: tanaka12@gmail.com
+##test-user1
+*email:    tanaka12@gmail.com
 *password: tanaka12
 
+##test-user2
+*email:   suzuki12@gmail.com
+*pasword: suzuki12
+
 #利用方法
-*まずユーザーアカウントを作成します。
+##header
+*記事検索はタイトルを入れることで記事を検索できます。
+*『新規登録』はユーザーを新しく登録できます。『ログイン』は既に登録してあるユーザーでログインできます。
+*ユーザーがログインしている状態だと『ユーザー名』はマイページへ遷移できます。『ログアウト』はログインしているユーザーをログアウトさせます。
+#side-bar
 *記事を書くから記事の投稿ができます。
 *
 *

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    @comments = @blog.comments.includes(:user)
+    # @comments = @blog.comment.includes(:user)
     if @comment.valid?
     redirect_to "/blogs/#{@comment.blog.id}"
     else

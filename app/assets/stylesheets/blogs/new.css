@@ -1,4 +1,7 @@
 /* ブログ投稿関係のcss */
+p {
+  white-space: pre-wrap;
+}
 .main-content2{
   height: calc(100vh - 80px);
   width: 100vw;
@@ -58,6 +61,7 @@
   border: 1px solid black ; 
   background-color: white;
   overflow: scroll;
+  white-space: pre-wrap;        /* 記述した内容を改行する */
 }
 .blog-contents2{
   height: 82vh;
@@ -67,6 +71,7 @@
   margin-left: auto;margin-right: auto;
   padding-top: 1px;
   border: 2px black double;
+  overflow: auto;
 }
 .blog-contribute{
   font-size: 30px;

@@ -1,25 +1,24 @@
 <%# 詳細ブログ記事ページ %>
 
 <%# <タイトルヘッド部分> %>
-<% if @blog.image.present? %>
+ <% if @blog.image.present? %>
   <div class="head-index" style="background-image: url(<%= @blog.image %>);">
      <h1 class="title-index">
       <%= @blog.title %>
       </h1>
   </div>
-  <% else %>
+ <% else %>
     <div class="head-index" >
      <h1 class="title-index">
       <%= @blog.title %>
       </h1>
    </div>
-
   <% end %>
 
   <div class="side-bar">
    <%= render "shared/side_bar2"%>
   </div>
-<%= render "shared/error_messages", model: @comment%>
+   <%= render "shared/error_messages", model: @comment%>
 
   <%# ページ内容 %>
 <div class="main-content2">
