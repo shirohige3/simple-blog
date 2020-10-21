@@ -11,6 +11,7 @@
  <div class="blog-head">
   <%= form_with model:@blog, local: true do |f| %>
      <%= render "shared/error_messages", model:@blog %>
+     
    <div class="title-box"> 
     <div class="blog-title2">
      <%= f.label :title, "タイトル" %><br />

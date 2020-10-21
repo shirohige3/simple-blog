@@ -3,7 +3,7 @@
   <div class="info">
    メニュー
   </div>
-  <ul class="side-list">
+  
    <% if user_signed_in? %>
       <div class="block">
        <%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %>
