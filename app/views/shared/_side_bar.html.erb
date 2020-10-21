@@ -1,7 +1,7 @@
 <%# サイドバーコンテンツ %>
  <div class="side-contents">
   <div class="info">
-   <h3>メニュー<h3>
+   メニュー
   </div>
   <ul class="side-list">
    <% if user_signed_in? %>
@@ -21,7 +21,7 @@
      </div>
    <% end %>
     <div class="block">
-     <li><%= link_to "一覧へ戻る", root_path, class:"root-index"%>
+     <li><%= link_to "一覧へ戻る", root_path, class:"root-index"%></li>
    </div>
   </ul>
  <div class="nav-content">
