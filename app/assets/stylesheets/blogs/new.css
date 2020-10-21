@@ -15,12 +15,14 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 20px;
 }
 .blog-head{
   display: flex;
   width: 40vw;
   height: 65px;
-  margin-left: 390px;}
+  margin-left: 390px;
+}
 
 .blog-title2.img-text{
   font-size: 20px;

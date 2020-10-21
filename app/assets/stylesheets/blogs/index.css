@@ -10,7 +10,7 @@ a {
 .title-block{
   font-size: 20px;
   color: white;
-  margin-top: 20px ;
+  margin-top: 10px ;
 }
 .s{
   color: red;
@@ -169,6 +169,7 @@ align-items: flex-end;
 .block,.search-block2{
   border-bottom: solid 1px white;
   margin: 10px 5px;
+ list-style: none;
 }
 .blog-name{
   line-height: 32px;
