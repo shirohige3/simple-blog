@@ -92,6 +92,8 @@ simple-blog
 *ブログ記事を投稿・編集・削除・またブログ記事に対してコメントができます。
 
 #URL
+*https://simple-blog29760.herokuapp.com/ | https://git.heroku.com/simple-blog29760.git
+*https://github.com/shirohige3/simple-blog
 
 #テスト用アカウント
 ##test-user1
