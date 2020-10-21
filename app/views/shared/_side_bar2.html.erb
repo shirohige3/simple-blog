@@ -59,7 +59,7 @@
    <%elsif user_signed_in? %>
    <%# その人の別のブログ記事へ飛べるorコメントする %>
     <div class="blog-comment">
-      <h4> コメント投稿 </h4>
+     コメント投稿 
     </div>
    <div class="comment-form">
     <%= form_with(model: [@blog, @comment], local: true) do |f| %>

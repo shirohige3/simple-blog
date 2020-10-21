@@ -95,14 +95,14 @@ p {
   padding: 3vh 5vw;
 }
 /* show用CS */
-.head-index{
-  height: 110px;
-  width: 100vw;
-  background-color: gray;
-  border-bottom: 1px solid black ;
+/* .head-index{ */
+  /* height: 110px; */
+  /* width: 100vw; */
+  /* background-color: gray; */
+  /* border-bottom: 1px solid black ; */
   /* background-color: black; */
-  object-fit: auto;
- }
+  /* object-fit: auto; */
+ /* } */
 .title-index{
   /* background-color: blue; */
   color: white;
