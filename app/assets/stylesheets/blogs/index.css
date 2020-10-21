@@ -169,8 +169,6 @@ align-items: flex-end;
 .block,.search-block2{
   border-bottom: solid 1px white;
   margin: 10px 5px;
-  margin-left: auto;margin-right: auto;
- list-style: none;
 }
 .blog-name{
   line-height: 32px;
@@ -284,7 +282,7 @@ align-items: flex-end;
 }
 .blog-info{
   height: 12vh;
-  width: 17vw;
+  width: 30vw;
   margin-right: auto;
 }
 .list{

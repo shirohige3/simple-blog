@@ -3,14 +3,14 @@
   <div class="info">
    メニュー
   </div>
-  <ul class="side-list">
+  
    <% if user_signed_in? %>
       <div class="side-menu">
       <div class="block">
-       <li><%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %></li>
+       <%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %>
       </div>
         <div class="block">
-         <li><%= link_to "記事を書く", new_blog_path, class:"new-blog" %></li>
+         <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
         </div>
    <% else %>
     <div class="block">
@@ -21,9 +21,9 @@
      </div>
    <% end %>
     <div class="block">
-     <li><%= link_to "一覧へ戻る", root_path, class:"root-index"%></li>
+     <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
    </div>
-  </ul>
+
  <div class="nav-content">
   <div class="search-block2">
    <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
