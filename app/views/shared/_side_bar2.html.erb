@@ -48,11 +48,9 @@
      コメント一覧 
       <% if @comments %>
        <% @comments.each do |comment| %>
-       <p>
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
+        <%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>
         <%= comment.text %>
-        <%= comment.created_at%>
-       </p>
+        <%#= comment.created_at%>
        <% end %>
       <% end %>
     </div>
@@ -74,11 +72,8 @@
     <div class="comments">
       <% if @comments %>
        <% @comments.each do |comment| %>
-        <p>
-         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>:</strong>
+         <%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>:
          <%= comment.text %>
-         <%#= comment.created_at %>
-        </p>
        <% end %>
       <% end %>
     </div>
