@@ -23,9 +23,81 @@ Things you may want to cover:
 
 * ...
 
-#テーブル設計
 
-##users テーブル
+
+# アプリケーション名
+- simple-blog
+
+# アプリケーション概要
+- ブログ記事投稿サイトです。
+- ユーザーの登録・登録内容の変更ができます。
+- ブログ記事を投稿できます（画像は見出しのみで文字のみの記事）。
+- ブログ記事の編集・削除ができます。
+- ブログ記事をタイトル名の一部で検索することができます。
+- 他のユーザーのブログ記事にコメントを残すことができます。
+
+# URL
+- https://simple-blog29760.herokuapp.com/ 
+- https://github.com/shirohige3/simple-blog
+
+# テスト用アカウント
+| test-user  | email              | password     |
+| ---------- | ------------------ | ------------ |
+| tanaka     | tanaka12@gmail.com | tanaka12     |
+| suzuki     | suzuki12@gmail.com | suzuki12     |
+
+# 利用方法
+# header
+- 『記事検索』はタイトルを入れることで記事を検索できます。
+- 『新規登録』はユーザーを新しく登録できます。
+- 『ログイン』は既に登録してあるユーザーのemailとpasswordでログインできます。
+- ユーザーがログインしている状態だと『ユーザー名』はマイページへ遷移できます。
+- 『ログアウト』はログインしているユーザーをログアウトさせます。
+# side-bar
+- 『記事を書く』からブログ記事の投稿ができます。タイトルと記事内容は必須です。
+- 『一覧へ戻る』はどこからでもトップページへ遷移します。
+- 『コメント』は自分以外のユーザーのブログ記事へコメントを書くことができます。
+- 『編集』は自分のブログ記事に対して編集が行えます。
+- 『削除』は自分のブログ記事を削除することができます。
+- 『過去記事一覧』はmain-contentsの部分のものが文字のみで表示されます。
+- 『マイページ』は自分のブログ記事のみを表示できます。
+- 『プロフィール』は自分の登録した情報を変更できます。現時点では『nickname』『email』『password』『introduction』のみです。
+# main-contents
+- ブログ記事が降順で新着順に掲載されます。
+- ブログ記事をクリックするとその記事の詳細ページへ遷移します。
+
+# 目指した課題解決
+- 10~20代の方（性別不問）の、ブログ記事を書いて投稿したい。
+- twitterなどでつながっているフォロワーや趣味の会う人とチャットなどで盛り上がりたい。
+
+# 洗い出した要件
+| 機能               | 目的                                                         |
+| ------------------ | -------------------------------------------------------------|
+| ユーザー管理機能   | ユーザーの管理・編集が目的です                               |
+| ブログ管理機能     | ブログの投稿・管理が目的です                                 |
+| コメント機能       | ブログへのコメント管理・投稿が目的です                       |
+| タグ検索機能       | ブログへタグを設定して検索を容易にすることが目的です         |
+| 画像投稿機能       | ユーザー・ブログ・メッセージへ画像を添付できることが目的です |
+| チャットルーム機能 | 個別にメッセージを送り合う場所を作ることが目的です           |
+| フレンド機能       | ユーザー間の繋がりを強くするのが目的です                     |
+| SNS連携機能        | 登録への敷居を下げ、登録を容易にすることが目的です           |
+| レスポンシブ機能   | 様々な画面サイズに合わせたサイズ変更が目的です               |
+# 実装した機能についてのGIFと説明
+- ユーザー管理機能
+- ブログ管理機能
+- コメント機能 
+
+# 実装予定の機能
+- タグ検索機能
+- チャットルーム機能
+- フレンド機能   
+- SNS連携機能
+- レスポンシブ機能
+
+# データベース・テーブル設計
+<img src="images/simple_blog_er.png" alt="ER図" title="ER図">
+
+## users テーブル
 | Column           | Type       | Options          |
 | ---------------- | -----------| ---------------- |
 | nickname         | string     | null: false      |
@@ -38,9 +110,10 @@ Things you may want to cover:
 ### Association
 - has_many         :blogs
 - has_many         :comments
+- has_many         :messages
 - has_one_attached :image
 
-##blogs テーブル
+## blogs テーブル
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
 | title            | string     | null: false                    |
@@ -54,7 +127,7 @@ Things you may want to cover:
 - has_many         :tags through: :blog_tags
 - has_one_attached :image
 
-##comments テーブル
+## comments テーブル
 | Column           | Type           | Options                        |
 | ---------------- | ---------------| ------------------------------ |
 | user             | references     | null: false, foreign_key: true |
@@ -65,7 +138,7 @@ Things you may want to cover:
 - belongs_to  :user
 - belongs_to  :blog
 
-##tags テーブル
+## tags テーブル
 | Column           | Type       | Options                       |
 | ---------------- | -----------| ----------------------------- |
 | name             | string     | null: false, uniqueness: true |
@@ -74,7 +147,28 @@ Things you may want to cover:
 - has_many  :blog_tags
 - has_many  :blogs through: blog_tags
 
-##blog_tags テーブル
+## rooms テーブル
+| Column           | Type       | Options                        |
+| ---------------- | -----------| ------------------------------ |
+| room_name        | string     | null: false                    |
+| user             | references | null: false, foreign_key: true |
+### Association
+- has_many  :messages
+- has_many  :usr_rooms
+- has_many  :users through: :user_rooms
+
+## messages テーブル
+| Column           | Type       | Options                        |
+| ---------------- | -----------| ------------------------------ |
+| message_text     | text       | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| room             | references | null: false, foreign_key: true |
+### Association
+- belongs_to  :user
+- belongs_to  :room
+- has_one_attached :image
+
+## blog_tags テーブル
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
 | blog             | references | null: false, foreign_key: true |
@@ -83,52 +177,18 @@ Things you may want to cover:
 - belongs_to :blog
 - belongs_to :tag
 
-#アプリケーション名
-simple-blog
-
-#アプリケーション概要
-*ブログ記事投稿サイトです。
-*ユーザーの登録・登録内容の変更が若干できます。
-*ブログ記事を投稿・編集・削除・またブログ記事に対してコメントができます。
-
-#URL
-*https://simple-blog29760.herokuapp.com/ 
-*https://github.com/shirohige3/simple-blog
-
-#テスト用アカウント
-##test-user1
-*email:    tanaka12@gmail.com
-*password: tanaka12
-
-##test-user2
-*email:   suzuki12@gmail.com
-*pasword: suzuki12
-
-#利用方法
-##header
-*記事検索はタイトルを入れることで記事を検索できます。
-*『新規登録』はユーザーを新しく登録できます。『ログイン』は既に登録してあるユーザーでログインできます。
-*ユーザーがログインしている状態だと『ユーザー名』はマイページへ遷移できます。『ログアウト』はログインしているユーザーをログアウトさせます。
-#side-bar
-*記事を書くから記事の投稿ができます。
-*
-*
-*
-*
-*
-*
-*
+## user_rooms テーブル
+| Column           | Type       | Options                        |
+| ---------------- | -----------| ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| room             | references | null: false, foreign_key: true |
+### Association
+- belongs_to :user
+- belongs_to :room
 
 
 
-#目指した課題解決
 
-#洗い出した要件
-
-#実装した機能についてのGIFと説明
-
-#実装予定の機能
-
-#ローカルでの動作方法
+# ローカルでの動作方法
 
 
