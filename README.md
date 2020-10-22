@@ -1,30 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-
 # アプリケーション名
 - simple-blog
 
@@ -74,7 +49,7 @@ Things you may want to cover:
 | 機能               | 目的                                                         |
 | ------------------ | -------------------------------------------------------------|
 | ユーザー管理機能   | ユーザーの管理・編集が目的です                               |
-| ブログ管理機能     | ブログの投稿・管理が目的です                                 |
+| ブログ管理機能     | ブログの投稿・管理・検索が目的です                           |
 | コメント機能       | ブログへのコメント管理・投稿が目的です                       |
 | タグ検索機能       | ブログへタグを設定して検索を容易にすることが目的です         |
 | 画像投稿機能       | ユーザー・ブログ・メッセージへ画像を添付できることが目的です |
@@ -83,9 +58,10 @@ Things you may want to cover:
 | SNS連携機能        | 登録への敷居を下げ、登録を容易にすることが目的です           |
 | レスポンシブ機能   | 様々な画面サイズに合わせたサイズ変更が目的です               |
 # 実装した機能についてのGIFと説明
-- ユーザー管理機能
-- ブログ管理機能
-- コメント機能 
+| 機能               | 目的                                                   |
+| ユーザー管理機能   | ユーザーの新規登録・ログイン・ログアウトができます     |
+| ブログ管理機能     | ブログの投稿・編集・削除・検索ができます               |
+| コメント機能       | ブログへのコメント投稿ができます                       |
 
 # 実装予定の機能
 - タグ検索機能
@@ -95,7 +71,7 @@ Things you may want to cover:
 - レスポンシブ機能
 
 # データベース・テーブル設計
-<img src="images/simple_blog_er.png" alt="ER図" title="ER図">
+<img src="app/assets/images/simple_blog_er.png" alt="ER図" width="100" height="100" title="ER図">
 
 ## users テーブル
 | Column           | Type       | Options          |
@@ -190,5 +166,28 @@ Things you may want to cover:
 
 
 # ローカルでの動作方法
+# gitclone用URL
+https://github.com/shirohige3/simple-blog.git
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
+Things you may want to cover:
+
+* Ruby version  ruby 2.6.5
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
