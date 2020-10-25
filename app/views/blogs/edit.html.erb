@@ -7,10 +7,11 @@
 </div>
 
     <%# 記事投稿フォーム作成 %>
+<%= render "shared/error_messages", model:@blog %>
  <div class="main-content">
   <div class="blog-head">
    <%= form_with model:@blog, local: true do |f| %>
-     <%= render "shared/error_messages", model:@blog %>
+     
     <div class="title-box"> 
      <div class="blog-title2">
       <%= f.label :title, "タイトル" %><br />
@@ -26,13 +27,13 @@
      </div>
     </div>
   </div>
-  <%# アイコンの類（取り敢えず並べたい） %>
+
   <div class="blog-contents2">
      <%# 記事内容投稿フォーム %>
      <div class="blog-contribute">
-      <%= f.label :text, "投稿内容作成" %><br />
+      <%= f.label :body, "投稿内容作成" %><br />
      </div>
-      <%= f.text_area :text, class:"blog-form", id:"text", placeholder:"記事内容"%>
+      <%= f.rich_text_area :body, class:"blog-form", id:"text", placeholder:"記事内容"%>
 
      <div class="action-btns">
           <%= f.submit "投稿する", class:"contribute-btn"%>

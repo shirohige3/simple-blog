@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :move_to_index, only: %i[edit new]
 
   def index
-    @blogs = Blog.includes(:user).order('created_at DESC')
+    @blogs = Blog.includes(:user).published.order('created_at DESC')
   end
 
   def new
@@ -45,11 +45,21 @@ class BlogsController < ApplicationController
   def search
     @blogs = Blog.search(params[:keyword])
   end
+  
+  def confirm
+    @blogs = Blog.draft.order("created_at DESC")
+  end
+
+  def toggle_status!
+    if draft?
+      published
+    end
+  end
 
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :image, :text, :status, :comment).merge(user_id: current_user.id)
+    params.require(:blog).permit(:title, :body, :image, :status, :comment).merge(user_id: current_user.id)
   end
 
   def set_blog

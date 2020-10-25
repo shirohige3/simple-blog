@@ -32,13 +32,13 @@
  <div class="blog-contents2">
      <%# 記事内容投稿フォーム %>
     <div class="blog-contribute">
-      <%= f.label :text, "投稿内容作" %><br />
+      <%= f.label :body, "投稿内容作成" %>
     </div>
-      <%= f.text_area :text, class:"blog-form", id:"text", placeholder:"記事内容" %>
+      <%= f.rich_text_area :body, class:"blog-form", id:"text", placeholder:"記事内容" %>
      <%# ボタン %>
      <div class="action-btns">
-       <%= f.submit "投稿する", class:"contribute-btn"%>
-       <%= f.submit "下書き保存", class:"contribute-btn2"%>
+       <%= f.submit "投稿する", class:"contribute-btn" %>
+       <%= f.submit "下書き保存", class:"contribute-btn2" %>
      </div>
   <% end %>
  </div>
