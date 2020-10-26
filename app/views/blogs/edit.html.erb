@@ -11,13 +11,12 @@
  <div class="main-content">
   <div class="blog-head">
    <%= form_with model:@blog, local: true do |f| %>
-     
     <div class="title-box"> 
      <div class="blog-title2">
-      <%= f.label :title, "タイトル" %><br />
+      <%= f.label :title, "タイトル" %>
       <%= f.text_field :title, class:"title-area", id:"title", placeholder:"記事タイトル" %>
      </div>
-
+  
      <%# 画像投稿フォーム %>
      <div class="img-upload">
        <div class="img-text">
@@ -31,15 +30,9 @@
   <div class="blog-contents2">
      <%# 記事内容投稿フォーム %>
      <div class="blog-contribute">
-      <%= f.label :body, "投稿内容作成" %><br />
+      <%= f.label :body, "投稿内容作成" %>
      </div>
       <%= f.rich_text_area :body, class:"blog-form", id:"text", placeholder:"記事内容"%>
-
-     <div class="action-btns">
-          <%= f.submit "投稿する", class:"contribute-btn"%>
-      <%# 下書きは未実装 %>
-       <%= f.submit "下書き保存", class:"contribute-btn2"%>
-     </div>
    <% end %>
   </div>
 </div>

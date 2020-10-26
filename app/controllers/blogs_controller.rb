@@ -6,6 +6,10 @@ class BlogsController < ApplicationController
     @blogs = Blog.includes(:user).published.order('created_at DESC')
   end
 
+  def confirm
+    @blogs = Blog.draft.order("created_at DESC")
+  end
+
   def new
     @blog = Blog.new(user_id: current_user.id)
     @blogs = Blog.where(id: params[:id])     # サイドバーに対してblogのidを配列として送る
@@ -46,9 +50,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.search(params[:keyword])
   end
   
-  def confirm
-    @blogs = Blog.draft.order("created_at DESC")
-  end
+
 
   def toggle_status!
     if draft?

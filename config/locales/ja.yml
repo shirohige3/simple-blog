@@ -12,3 +12,10 @@ ja:
      blog:
        text: 記事内容
        title: タイトル
+
+ja:
+    enums:
+        blog:
+          status:
+            draft: "下書き保存"
+            published: "公開する"
