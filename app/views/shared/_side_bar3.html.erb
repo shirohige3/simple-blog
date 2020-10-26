@@ -34,6 +34,11 @@
  </div>
 </div>
 
-  <%# 下段UI %>
-  <%# オプション関係を入れたい %>
+  <%# 下段 %>
+   <%= form_with model:@blog, local: true do |f| %>
+     <div class="action-btn">
+       <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
+          <%= f.submit "投稿", class:"contribute-btn"%>
+     </div>
+   <% end %>
 </div>

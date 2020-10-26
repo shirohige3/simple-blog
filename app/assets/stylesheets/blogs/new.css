@@ -1,7 +1,28 @@
 /* ブログ投稿関係のcss */
-p {
-  white-space: pre-wrap;
+
+/* Actiontext用 */
+.trix-content {
+  line-height: 2em;
+  blockquote {
+    border-bottom: 1.5px solid #ddd;
+    font-size: 1.0em;
+    line-height: 1.2;
+    padding-bottom: .2em;
+    margin: 0;
+    width: 30vw;
+  }
 }
+  .tirx_editer{
+
+  }
+.trix-button-row{
+}
+/* 範囲を色指定するときに使用 */
+  pre {
+    background-color: red;
+    color:white;
+  }
+
 .main-content2{
   height: calc(100vh - 80px);
   width: 100vw;
@@ -43,13 +64,14 @@ p {
 }
 
 .blog-form{
-  height: 65vh;
-  width: 45vw;
+  height: 61vh;
+  width: 52vw;
   padding: 16px 16px 8px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
+  background-color: white;
   font-size: 16px;
   overflow: auto;
-  margin: 0 15px 0;
+  margin-bottom:10px;
   cursor: pointer;
 }
 
@@ -65,34 +87,51 @@ p {
   overflow: scroll;
   white-space: pre-wrap;        /* 記述した内容を改行する */
 }
-.blog-contents2{
-  height: 82vh;
-  width: calc(100% - 50vw);
+.blog-contents2,.blog-contents-show{
+  height: 78vh;
+  width: calc(100% - 45vw);
   /* flex-wrap: wrap;                 記事折り返し用 */
-  background-color: cornsilk;
+  /* background-color: whitesmoke; */
   margin-left: auto;margin-right: auto;
   padding-top: 1px;
-  border: 2px black double;
   overflow: auto;
+}
+.blog-contents-show{
+  border: 1px black solid;
 }
 .blog-contribute{
   font-size: 30px;
   margin-left: 20px;
 }
-.action-btns{
-  margin-left: 100px;
+/* ブログようボタンまわり */
+.action-btn{
+  width: 16vw;
+  margin-top: 20px;
+margin-left: auto;margin-right: auto;
+border-bottom:  1px solid white;
 }
-.contribute-btn,.contribute-btn2{
+.contribute-btn{
   background-color: rgba(17, 161, 53, 0.85);
-  padding: 3vh 3vw;
+  padding: 2vh 3vw;
+  margin-bottom: 5px;
   font-size: 20px;
-  margin-left: 2vw;
   cursor: pointer;
   color: black;
 }
 .contribute-btn{
-  background-color: cyan;
-  padding: 3vh 5vw;
+  background-color: white;
+  width: 10vw;
+}
+/* enum下書き公開用 */
+select{
+  color: white;
+  padding: 5px 10px;
+  background-color: gray ;
+  border: 1px solid white;
+  width: 10vw;
+  font-size: 20px; 
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 /* show用CS */
 .head-index{

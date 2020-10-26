@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :edit, :show]
 
   resources :blogs do
+    collection do
+      get 'confirm'
+    end
    resources :comments, only: :create
     collection do 
      get "search"

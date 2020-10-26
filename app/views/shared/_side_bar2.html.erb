@@ -41,9 +41,16 @@
     <div class="info2">
       編集or削除
     </div>
+    <%= form_with model:@blog, local: true do |f| %>
+    <% f.label :edit, "メニュー" %>
+    <%= f.select :edit, {"編集する": edit_blog_path, "削除する": 2}, { include_blank: "編集or削除"},{ class: "form-cntrol", require: true} %>
+    <%= f.submit "決定する"%>
+     <% end %>
      <%= link_to "編集する", edit_blog_path, class:"edit-btn"%>
      <%= link_to "削除する", blog_path, method: :delete, class:"delete-btn"%>
+    
   </div>
+
     <div class="blog-comment">
      コメント一覧 
       <% if @comments %>
