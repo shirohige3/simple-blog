@@ -37,18 +37,12 @@
 </div>
   <%# 下段UI %>
   <div class="info2">
-   過去投稿記事
+   ユーザー編集
   </div>
-  <%# <自分のブログだけを表示したいが未定&& @blogs.ids(user_id: current_user.id)> %>
-  <% if user_signed_in?  %>
-   <% @blogs.each do |blog|%>
-    <%= link_to blog_path(blog.id) do %>
-    <div class="block">
-    <div class="blog-name">
-     <%= blog.title%>
-     </div>
-     </div>
-    <% end %>
-   <% end %>
-   <%end%>
+   <div class="block">
+     <%= link_to "プロフィール編集", edit_user_registration_path, method: :get, local: true, class:"my-menu2" %>
+   </div>
+   <div class="block">
+     <%#= link_to "パスワード変更", edit_user_password_path(@user.id), method: :get, local: true, class:"my-menu2" %>
+   </div>
  </div>

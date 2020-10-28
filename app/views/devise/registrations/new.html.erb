@@ -1,7 +1,7 @@
 <%# 新規登録画面 %>
 <div class="main-content3">
  <div class="new-user-head">
-  <h3>Simple-blogへようこそ!!</h3>
+  simple-blogへようこそ!!
  </div>
 
  <div class="new-users">
@@ -9,7 +9,7 @@
    <h4>-会員情報入力-</h4>
   </div>
   
-  <div class="user-contents">
+  <%# <div class="user-contents"> %>
    <%= form_with model:@user, url: user_registration_path, class: 'registration', local: true do |f| %>
      <%= render "devise/shared/error_messages", resource: @user %>
     <div class="field">
@@ -50,12 +50,9 @@
 
     <div class="actions">
       <%= f.submit "新規登録する", class:"registration-btn" %>
-    </div>
    <% end %>
-
-    <div class="actions">
      <%= link_to "戻る", root_path, class:"return-btn" %>
     </div>
   </div>
- </div>
+ <%# </div> %>
 </div>

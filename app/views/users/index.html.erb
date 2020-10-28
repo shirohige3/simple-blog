@@ -1,0 +1,43 @@
+<%# プロフィールを載せる %>
+<%= render "shared/header"%>
+ <div class="side-bar">
+  <%= render "shared/side_bar_profile" %>
+ </div>
+
+<div class="title">
+  <%= @user.nickname %>さんのプロフィール
+</div>
+ <div class="main-contents">
+   <div class="blog-contents">
+      <div class="profile2">
+       ニックネーム
+      </div>
+        <div class="profile-field">
+         <%= @user.nickname %>
+        </div>
+      <div class="profile">
+       お名前
+      </div>
+       <div class="profile-field">
+         <%= @user.full_name %>
+       </div>
+     <div class="profile">
+      お名前（カナ）
+     </div>
+       <div class="profile-field">
+        <%= @user.full_name_kana %>
+       </div>
+     <div class="profile">
+      誕生日
+     </div>
+       <div class="profile-field">
+        <%= @user.birth_date, placeholder="未登録" %>
+       </div>
+     <div class="profile">
+     自己紹介
+     </div>
+      <div class="profile-field2">
+       <%= @user.introduction, placeholder="未登録" %>
+      </div>
+   </div>
+ </div>

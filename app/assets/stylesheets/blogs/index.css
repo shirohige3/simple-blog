@@ -69,17 +69,17 @@ align-items: flex-end;
   border        : 1px solid white;    /* 枠の指定 */
   margin-bottom: 3px;
 }
-.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover, .root-index:hover,.comment-btn:hover,.return-btn:hover {
+.search-btn:hover ,.nickname:hover,.log-out:hover,.new-user:hover,.log-in:hover,.my-menu:hover,.new-blog:hover,.blog-name:hover, .search-btn2:hover, .root-index:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #000066;     /* 文字色     */
   background    : #ffffff;     /* 背景色     */
 }
-.delete-btn:hover,.contribute-btn:hover{
+.delete-btn:hover,.contribute-btn:hover,.my-menu2:hover{
   box-shadow    : none;
   color: white;
   background: red;
 }
-.edit-btn:hover,.せぇct:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover{
+.edit-btn:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover,.comment-btn:hover,.return-btn:hover{
   box-shadow    : none;
   color: white;
   background: blue;
@@ -95,7 +95,7 @@ align-items: flex-end;
 .edit-block{
   justify-content: space-between;
 }
-.edit-btn,.delete-btn,.comment-btn,.contribute-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn{
+.edit-btn,.delete-btn,.comment-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 22px;        /* 文字サイズ */
@@ -115,6 +115,7 @@ align-items: flex-end;
  width: 14vw;
  margin-bottom: 20px;
  margin-top: 20px;
+ margin-right: 10px;
 }
 .update-btn{
   margin-top: 10px;
@@ -122,13 +123,14 @@ align-items: flex-end;
 .return-btn{
   border-radius: 5%;
     text-decoration: none;
-    font-size: 15px;
-    background-color: cornsilk;
+    font-size: 23px;
+    background-color: white;
     border: solid 1px ;
-    padding: 1vh 5vw;
+    padding: 1.1vh 3vw 1.2vh;
+    margin-top: 1vh;
     color: black;
 }
-.new-user,.log-in,.log-out,.my-menu,.new-blog,.nickname,.root-index{
+.new-user,.log-in,.log-out,.my-menu,.my-menu2,.new-blog,.nickname,.root-index{
   line-height: 32px;
   margin-right: 10px;
   color: #333333;
@@ -157,6 +159,7 @@ align-items: flex-end;
   border: 2px solid white;
   margin: 5px;
   padding: 3px 0;
+  
 }
 
 .info2{
@@ -207,23 +210,34 @@ align-items: flex-end;
 
 .comment-input{
   margin-top: 2px;
-  width: 15vw;
+  width: 40vw;
   cursor: pointer;
+  vertical-align: middle;   /* 要素の縦型中央揃え */
 }
 .comments,.comment-user{
-  color: white;
+  color: black;
   text-align: left;
+  /* margin-left: auto;margin-right: auto; */
 }
 .comment-btn{
   font-size: 15px;
-  padding: 15px 20px;
-  margin: 0 5px 3px;
+  padding: 3vh 2vw;
+  
 }
 .comment-form{
   border-bottom: solid 1px white;
+  display: flex;
+  justify-content: center;
 }
 .blog-comment{
-  margin-top: 10px;
+  margin: 3vh 0;
+  margin-left: auto;margin-right: auto;
+  padding: 1vh 22.5vw;
+  border: black solid 2px;
+}
+.created-date{
+  font-size: 13px;
+  color: #666666;
 }
 /* メイン・ブログを展開する部分 */
 .main-content,.main-content3{

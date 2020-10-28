@@ -23,7 +23,24 @@
 
   <%# ページ内容 %>
 <div class="main-content2">
-   <div class="blog-contents-show">
+  <div class="blog-contents-show">
       <%= @blog.body %>
-     </div>
+   <% if user_signed_in? && @blog.user.id == current_user.id %>
+    <%= render "shared/comment" %>
+   <% elsif user_signed_in? %>
+    <div class="blog-comment">
+     コメント投稿 
+    </div>
+    <div class="comment-form">
+     <%= form_with(model: [@blog, @comment], local: true) do |f| %>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "3" ,class:"comment-input"%>
+       <%= f.submit "投稿する", class:"comment-btn" %>
+     <% end %>
+    </div>
+      <%= render "shared/comment" %>
+   <% else %>
+      <%= render "shared/comment" %>
+   <%end%>
+  </div>
 </div>
+
