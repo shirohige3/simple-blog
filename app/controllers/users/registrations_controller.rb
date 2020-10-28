@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if @user.update(account_update_params)
-      redirect_to user_path(@user.id)
+      redirect_to root_path
     else
       render :edit
     end
