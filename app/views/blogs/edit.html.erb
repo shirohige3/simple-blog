@@ -31,6 +31,12 @@
      <%# 記事内容投稿フォーム %>
      <div class="blog-contribute">
       <%= f.label :body, "投稿内容作成" %>
+      <div class="action-btn">
+        <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
+      </div>
+      <div class="action-btn2">
+        <%= f.submit "投稿", class:"contribute-btn"%>
+      </div>
      </div>
       <%= f.rich_text_area :body, class:"blog-form", id:"text", placeholder:"記事内容"%>
    <% end %>
