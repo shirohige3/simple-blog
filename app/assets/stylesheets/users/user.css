@@ -1,17 +1,17 @@
 .new-user-head,.new-user-head2{
-  height: 7vh;
+  height: 6vh;
   width: 40vw;
   font-size: 35px;
   margin-left: auto;margin-right: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .main-content3{
   height: calc(100vh - 30px);
   background-color: white;
 }
 .new-users,.new-users2{
-  height: 82vh;
+  height: 84vh;
   width: calc(100% - 50vw);
   background-color: cornsilk;
   margin-left: auto;margin-right: auto;
@@ -85,4 +85,30 @@
 .another-blog{
   text-decoration: none;
   margin-top: 3vh;
+}
+
+/* プロフィール編集関係用 */
+.profile,.profile2{
+  width: 40vw;
+  font-size: 2vh;
+  margin-top: 2vh;
+  margin-left: auto;margin-right: auto;
+}
+.profile2{
+  margin-top: 4vh;
+}
+.profile-field, .profile-field2{
+  height: 3vh;
+  width: 40vw;
+  font-size: 2vh;
+  margin-top: 1vh;
+  margin-left: auto;margin-right: auto;
+  padding: 1vh 1vw;
+  background-color: white;
+  border: 1px solid black;
+}
+.profile-field2{
+  height: 10vh;
+  overflow: auto;
+  margin-bottom: 4vh;
 }

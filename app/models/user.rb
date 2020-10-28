@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :comments
   has_one_attached :image
-  attr_accessor :current_password
+  attr_accessor :current_password    # passwordなしで更新に必要
 
   validates :nickname,       presence: true, length: { maximum: 10 }
 

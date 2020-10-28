@@ -93,7 +93,6 @@
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
 | title            | string     | null: false                    |
-| text             | text       | null: false                    |
 | status           | integer    | null: false,  default: 0       |
 | user             | references | null: false, foreign_key: true |
 ### Association

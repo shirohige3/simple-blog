@@ -1,0 +1,24 @@
+  <div class="blog-comment">
+       コメント一覧 
+   </div>
+    <div class="comments">
+      <% if @comments %>
+       <% @comments.each do |comment| %>
+         <%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>:
+         <%= comment.text %>
+       <% end %>
+      <% end %>
+    </div>
+  <%end%>
+ </div>
+
+     <div class="blog-comment">
+     コメント一覧 
+      <% if @comments %>
+       <% @comments.each do |comment| %>
+        <%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>
+        <%= comment.text %>
+        <%#= comment.created_at%>
+       <% end %>
+      <% end %>
+    </div>

@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def create
+    binding.pry
     @blog = Blog.new(blog_params)
     if @blog.valid?
       @blog.save

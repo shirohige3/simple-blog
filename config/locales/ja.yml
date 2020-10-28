@@ -17,5 +17,5 @@ ja:
     enums:
         blog:
           status:
-            draft: "下書き保存"
-            published: "公開する"
+            draft: "下書き"
+            published: "公開"

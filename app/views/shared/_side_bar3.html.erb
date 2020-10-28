@@ -1,44 +1,37 @@
 <%# 記事作成ページ対応サイドバーコンテンツ %>
- <div class="side-contents">
+<div class="side-contents">
   <div class="info">
    メニュー
   </div>
   
+   
+ <div class="side-menu">
    <% if user_signed_in? %>
-      <div class="side-menu">
-      <div class="block">
+    <div class="block">
        <%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %>
     </div>
     <div class="block">
      <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
-   </div>
+    </div>
    <% else %>
-   <div class="block">
+    <div class="block">
      <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
      </div>
      <div class="block">
      <%= link_to "ログイン",user_session_path, class:"log-in" %>
     </div>
-    <% end %>
+   <% end %>
     <div class="block">
       <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
    </div>
   
- <div class="nav-content">
-  <div class="search-block2">
-   <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
-    <%= f.text_field :keyword, placeholder:"記事検索", class:"search-input2" %>
-    <%= f.submit '検索', class:"search-btn2" %>
-   <% end %>
+  <div class="nav-content">
+   <div class="search-block2">
+    <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
+     <%= f.text_field :keyword, placeholder:"記事検索", class:"search-input2" %>
+     <%= f.submit '検索', class:"search-btn2" %>
+    <% end %>
+   </div>
   </div>
  </div>
-</div>
-
-  <%# 下段 %>
-   <%= form_with model:@blog, local: true do |f| %>
-     <div class="action-btn">
-       <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
-          <%= f.submit "投稿", class:"contribute-btn"%>
-     </div>
-   <% end %>
 </div>
