@@ -50,8 +50,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.search(params[:keyword])
   end
   
-
-
+  # 下書き・公開用
   def toggle_status!
     if draft?
       published

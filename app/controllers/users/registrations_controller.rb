@@ -5,9 +5,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   # before_action :update_resource, only: [:update]
   # GET /resource/sign_up
-  def new
-    @user = User.new
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource
   # def create
@@ -15,14 +15,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  # super
-  # end
+  def edit
+  @user = current_user
+  end
 
   # PUT /resource
   def update
+    @user = current_user
     if @user.update(account_update_params)
-      redirect_to root_path
+      redirect_to user_path(@user.id)
     else
       render :edit
     end

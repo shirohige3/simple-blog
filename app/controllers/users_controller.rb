@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   # end
 
   def show
+    @user = User.find(params[:id])
     @blogs = current_user.blogs
   end
 
@@ -53,6 +54,8 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    redirecto_to root_path unless user_signed_in? || @user.id == current_user.id
+    unless user_signed_in? || @user.id == current_user.id
+      redirect_to root_path 
+    end
   end
 end

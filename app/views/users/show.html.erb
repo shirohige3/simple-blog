@@ -6,14 +6,11 @@
    <%# <ブログ展開> %>
 <div class="main-content">
   <div class="title">
-   My Blogs
+   <%= @user.nickname %>さんのマイページ
   </div>
    <div class="blog-contents">
-
     <% if @blogs.size > 0  %> 
       <%= render "shared/blog"%>
-        <%#blogがまだない時の表示%>
-    <% else %>
     <% end %>
    </div>
 </div>

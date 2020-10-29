@@ -10,7 +10,6 @@ ja:
        password: パスワード
        password_confirametion: パスワードを再入力
      blog:
-       text: 記事内容
        title: タイトル
 
 ja:
@@ -19,3 +18,10 @@ ja:
           status:
             draft: "下書き"
             published: "公開"
+
+ja:
+ date:
+   order:
+   - :year
+   - :month
+   - :day
