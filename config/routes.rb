@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   root to: "blogs#index"
   
-  resources :users, only: [:index, :new, :create, :edit, :show]
+  resources :users, only: [:index, :new, :create, :edit, :show] 
 
   resources :blogs do
     collection do

@@ -43,6 +43,6 @@
      <%= link_to "プロフィール編集", edit_user_registration_path(current_user), method: :get, local: true, class:"my-menu2" %>
    </div>
    <div class="block">
-     <%#= link_to "パスワード変更", edit_user_password_path(@user.id), method: :get, local: true, class:"my-menu2" %>
+     <%= link_to "パスワード変更", edit_user_password_path(current_user), method: :get, local: true, class:"my-menu2" %>
    </div>
  </div>

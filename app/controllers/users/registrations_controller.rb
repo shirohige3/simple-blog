@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  # before_action :update_resource, only: [:update]
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -23,9 +23,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
     if @user.update(account_update_params)
-      redirect_to user_path(@user.id)
+      sign_in(@user, bypass: true) if current_user.id == @user.id
+      redirect_to user_path(@user)
     else
-      render :edit
+      render action: :edit
     end
   end
 

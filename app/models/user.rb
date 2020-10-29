@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
   validates :password, presence: true, format: { with: PASSWORD_REGEX }
+
 end
