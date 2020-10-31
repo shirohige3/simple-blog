@@ -47,9 +47,7 @@ class BlogsController < ApplicationController
   end
 
   def search
-    if
     @blogs = Blog.search(params[:keyword])
-
   end
   
   # 下書き・公開用

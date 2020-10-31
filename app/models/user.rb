@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :comments
   has_one_attached :image
-  attr_accessor :current_password    # passwordなしで更新に必要
+  attr_accessor :current_password    # user_editpasswordなしで更新に必要?
 
   validates :nickname,       presence: true, length: { maximum: 10 }
 
@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   validates :email,          presence: true, format: { with: /@+/ }
 
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
-  validates :password, presence: true, format: { with: PASSWORD_REGEX }
+  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
+  # validates :password, format: { with: PASSWORD_REGEX }
 
 end

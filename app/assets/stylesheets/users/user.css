@@ -12,7 +12,7 @@
 }
 .new-users,.new-users2{
   height: 84vh;
-  width: calc(100% - 50vw);
+  width: calc(100% - 49vw);
   background-color: cornsilk;
   margin-left: auto;margin-right: auto;
  text-align: center;
@@ -25,9 +25,10 @@
   padding: 20px 0;
 }
 .user-contents,.user-contents2,.user-contents3{
-  height: 74vh;
-  width: 45vw;
+  height: 77vh;
+  width: 48vw;
   background-color:white;
+  margin-top: 3vh;
  margin-left: auto;margin-right: auto;
  padding: 5px;
  border: 1px solid black;
@@ -35,7 +36,9 @@
 
 }
 .user-contents2{
-  height: 45vh;
+  height: 40vh;
+  padding-top: 5vh;
+  margin-top: 0px;
   margin-left: auto;margin-right: auto;
 }
 .user-contents3{
@@ -44,15 +47,15 @@
 }
 
 .title2{
-    font-size: 20px;
-    margin-top: 5px;
+    font-size: 3vh;
+    margin-top: 3vh;
   }
 
 .field{
   width: 40vw;
   font-size: 17px;
   padding-bottom: 3px;
-  margin-top: 20px;
+  margin-top: 1vh;
   margin-left: auto;margin-right: auto;
   text-align: left;
 }

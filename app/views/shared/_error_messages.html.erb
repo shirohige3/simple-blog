@@ -1,5 +1,7 @@
 <%# model事にエラーが出せるように設定 %>
+
 <% if model.errors.any? %>
+<div class="errors">
   <div class="error_explanation">
     <ul>
       <% model.errors.full_messages.each do |message| %>
@@ -8,3 +10,4 @@
     </ul>
   </div>
 <% end %>
+</div>

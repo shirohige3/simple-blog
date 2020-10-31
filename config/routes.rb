@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/index', to: 'users/registrations#index'
     get 'users/destroy', to: 'users/sessions#destroy'
+    get 'registrations/edit_password', to: 'registrations#edit_password', as: 'edit_password'
+    put 'registrations/update_password', to: 'registrations#update_password', as: 'update_password'
   end 
   
   root to: "blogs#index"
   
-  resources :users, only: [:index, :new, :create, :edit, :show] 
+  resources :users, only: [:index, :new, :create, :show] 
 
   resources :blogs do
     collection do
