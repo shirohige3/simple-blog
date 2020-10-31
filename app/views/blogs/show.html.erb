@@ -6,7 +6,13 @@
   <div class="head-index" >
      <div class="title-index">
       <%= @blog.title %>
+            <% if @blog.status == "draft"%>
+       <div class="draft2">
+        非公開
+        </div>
+        <%end%>
       </div>
+
   </div>
  <%# else %>
     <%# <div class="head-index" > %>
