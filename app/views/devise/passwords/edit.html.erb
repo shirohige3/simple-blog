@@ -22,4 +22,17 @@
   </div>
 <% end %>
 
+<%# 自作パスフォーム %>
 <%= render "devise/shared/links" %>
+
+    <div class="field">
+     <%= f.label :password, "新パスワード" %>
+      <span class="essential">必須</span><br />
+      <%= f.password_field :password, autocomplete: "new-password", class:"input-area", id: "password", placeholder:"6文字以上の半角英数字" %>
+    </div>
+
+    <div class="field">
+     <%= f.label :password_confirmation, "新パスワードの確認" %>
+      <span class="essential">必須</span><br />
+      <%= f.password_field :password_confirmation,autocomplete: "new-password", class:"input-area", id: "password-confirmation", placeholder:"passwordを再入力" %>
+    </div>

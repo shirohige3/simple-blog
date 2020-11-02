@@ -3,7 +3,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  # before_action :update_resource, only: [:update]
+  prepend_before_action :authenticate_scope!, only:[:edit, :edit_password, :update, :update_password, :destroy]
+
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -22,12 +24,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     @user = current_user
+    pp @user
     if @user.update(account_update_params)
-      redirect_to user_path(@user.id)
+      sign_in(@user, bypass: true) if current_user.id == @user.id
+      redirect_to user_registration_path(@user.id)
     else
-      render :edit
+      render action: :edit
     end
   end
+
 
   # DELETE /resource
   # def destroy
@@ -56,7 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    # if params[:password].blank? && params[:password_confirmation].blank? && params[:current_password].blank?
+     resource.update_without_password(params)
+    # else
+      # resource.update_with_password(params)
+    # end
   end
 
   # update後にマイページ

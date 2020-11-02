@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #  deviseコントローラーに追加したカラムをkeyで追加する
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[nickname full_name full_name_kana birth_date introduction])
     devise_parameter_sanitizer.permit(:sign_in, keys: %i[nickname full_name full_name_kana birth_date introduction])

@@ -217,7 +217,6 @@ align-items: flex-end;
 .comments,.comment-user{
   color: black;
   text-align: left;
-  /* margin-left: auto;margin-right: auto; */
 }
 .comment-btn{
   font-size: 15px;
@@ -330,4 +329,15 @@ align-items: flex-end;
 .side_item{
   background-color: black;
 }
-
+/* エラ〜メッセージよう */
+.errors{
+  border-radius : 3%;
+  height: 10vh;
+  width: 50vw;
+  background-color: rgb(212, 25, 106);
+  color: #ffffff;
+  padding: 1vh 1vw;
+  margin-top: 1vh;
+  margin-left: auto;margin-right: auto;
+  border: 1px solid black;
+}

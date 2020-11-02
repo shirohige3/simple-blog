@@ -4,12 +4,11 @@
   simple-blogへようこそ!!
  </div>
 
- <div class="new-users">
+<div class="new-users">
+ <div class="user-contents">
   <div class="title2">
    <h4>-会員情報入力-</h4>
   </div>
-  
-  <%# <div class="user-contents"> %>
    <%= form_with model:@user, url: user_registration_path, class: 'registration', local: true do |f| %>
      <%= render "devise/shared/error_messages", resource: @user %>
     <div class="field">
@@ -54,5 +53,5 @@
      <%= link_to "戻る", root_path, class:"return-btn" %>
     </div>
   </div>
- <%# </div> %>
+ </div>
 </div>

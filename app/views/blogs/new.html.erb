@@ -7,14 +7,13 @@
  </div>
 
     <%# 記事投稿フォーム作成 %>
+     <%= render "shared/error_messages", model:@blog %>
 <div class="main-content">
   <div class="blog-head">
    <%= form_with model:@blog, local: true do |f| %>
-     <%= render "shared/error_messages", model:@blog %>
-     
    <div class="title-box"> 
     <div class="blog-title2">
-     <%= f.label :title, "タイトル" %><br />
+     <%= f.label :title, "タイトル" %>
      <%= f.text_field :title, class:"title-area", id:"title", placeholder:"記事タイトル" %>
     </div>
     <%# 画像投稿フォーム %>

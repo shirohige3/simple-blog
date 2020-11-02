@@ -12,6 +12,11 @@
            <div class="blog-title">
             <%= blog.title %>
            </div>
+             <% if blog.status == "draft" %>
+              <div class="draft">
+               未公開
+              </div>
+             <% end %>
             <div class="blog-user">
              投稿者:
               <%= blog.user.nickname %>

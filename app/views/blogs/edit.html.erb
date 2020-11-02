@@ -7,7 +7,7 @@
 </div>
 
     <%# 記事投稿フォーム作成 %>
-<%= render "shared/error_messages", model:@blog %>
+   <%= render "shared/error_messages", model:@blog %>
  <div class="main-content">
   <div class="blog-head">
    <%= form_with model:@blog, local: true do |f| %>
