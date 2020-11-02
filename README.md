@@ -116,7 +116,7 @@
 ## tags テーブル
 | Column           | Type       | Options                       |
 | ---------------- | -----------| ----------------------------- |
-| name             | string     | null: false, uniqueness: true |
+| name             | string     | uniqueness: true              |
 
 ### Association
 - has_many  :blog_tags

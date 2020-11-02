@@ -1,6 +1,8 @@
 class Blog < ApplicationRecord
   enum status: { draft: 0, published: 1 }
-
+  
+  has_many   :blog_tags
+  has_many   :tags, through: :blog_tags
   has_many   :comments, dependent: :destroy
   belongs_to :user
   has_one_attached :image, dependent: :destroy
