@@ -163,12 +163,15 @@ select{
   object-fit: auto;
   text-align: center;
   margin-left: auto;margin-right: auto;
+  overflow: auto;
  }
 .title-index{
   color: white;
-  font-size: 9vh;
+  font-size: 45px ;
   display: flex;
   justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
 }
 .blog-img2{
   object-position: left;
