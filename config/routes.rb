@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/index', to: 'users/registrations#index'
     get 'users/destroy', to: 'users/sessions#destroy'
-    get 'registrations/edit_password', to: 'registrations#edit_password', as: 'edit_password'
-    put 'registrations/update_password', to: 'registrations#update_password', as: 'update_password'
+    put 'users/password/new', to: 'users/passwords#new'
+    get 'users/password', to: 'users/passwords#edit'
+    put 'users/password', to: 'users/passwords#update'
   end 
   
   root to: "blogs#index"
