@@ -17,16 +17,21 @@
                未公開
               </div>
              <% end %>
-            <div class="blog-user">
-             投稿者:
-              <%= blog.user.nickname %>
-            </div>
-             <div class="blog-time">
-              投稿日:
-               <%= blog.created_at %>
-             </div>
-             </div>
+              <div class="blog-user">
+               投稿者:
+                <%= blog.user.nickname %>
+              </div>
+               <div class="blog-time">
+                投稿日:
+                <%= blog.created_at %>
+               </div>
+                <div class="tag-list">
+                 <% blog.tags.each do |tag|%>
+                  #<%= tag.tag_name %>
+                 <% end %>
+                </div>
           </li>
          </div>
-      <% end %>
+      </div>
+    <% end %>
 <% end %>
