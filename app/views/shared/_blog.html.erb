@@ -27,7 +27,7 @@
                </div>
                 <div class="tag-list">
                  <% blog.tags.each do |tag|%>
-                  #<%= tag.tag_name %>
+                  #<%= link_to "#{tag.tag_name}", search_blogs_path(tag_name: tag.tag_name) %>
                  <% end %>
                 </div>
           </li>

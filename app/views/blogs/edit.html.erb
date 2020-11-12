@@ -33,7 +33,7 @@
         <%= f.label :body, "投稿内容作成" %>
        </div>
          <div class="tag-block">
-           <%= f.text_field :tag_name, class:"tag-form", placeholder:"タグ1"%>
+           <%= f.text_field :tag_ids, value:@tag_list, class:"tag-form", placeholder:"タグ1"%>
          </div>
           <div class="action-btn">
            <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>

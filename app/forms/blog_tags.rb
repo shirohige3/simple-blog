@@ -16,26 +16,9 @@ class BlogTags
     tag_list.each do |tag_name|
     @tag = Tag.where(tag_name: tag_name).first_or_initialize
     @tag.save
-    BlogTag.create(blog_id: blog.id, tag_id: @tag.id)
+    @blogtag = BlogTag.create(blog_id: blog.id, tag_id: @tag.id)
     end
   end
-  
-  private
-  def save_tags(save_tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    old_tags = current_tags - save_tags
-    new_tags = save_tags - current_tags
-
-    old_tags.each do |old_name|
-      self.tags.delete Tag.find(tag_name: old_name)
-    end
-
-    new_tags.each do |new_name|
-      blog_tag = Tag.find_or_created_by(tag_name: new_name)
-      self.tags << blog_tag
-    end
-  end
-
 end
 
 
