@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   end
 
   def confirm
-    @blogs = Blog.draft.order("created_at DESC")
+    @blogs = Blog.draft.order('created_at DESC')
   end
 
   def new
@@ -16,10 +16,10 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = BlogTags.new(blogtags_params)
     if @blog.valid?
       @blog.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render :new
     end
@@ -27,17 +27,24 @@ class BlogsController < ApplicationController
 
   def destroy
     if @blog.destroy
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render :show
     end
   end
 
+  def edit
+    @tag_list = @blog.tags.pluck(:tag_name).join(',')
+  end
+
   def update
-    if @blog.update(blog_params)
-      redirect_to root_path
+    @blog.destroy
+    @blog = BlogTags.new(blogtags_params)
+    if @blog.valid?
+      @blog.save
+      redirect_to user_path(current_user.id)
     else
-      render :edit
+      render :new
     end
   end
 
@@ -47,20 +54,27 @@ class BlogsController < ApplicationController
   end
 
   def search
-    @blogs = Blog.published.search(params[:keyword])
+    @blogs = Blog.published.order('created_at DESC').search(params[:keyword])
+    @blogs = [] if @blogs.nil?
   end
-  
+
   # 下書き・公開用
   def toggle_status!
-    if draft?
-      published
-    end
+    published if draft?
   end
 
   private
 
-  def blog_params
+  def blogs_params
     params.require(:blog).permit(:title, :body, :image, :status, :comment).merge(user_id: current_user.id)
+  end
+
+  def blog_params
+    params.require(:blog).permit(:title, :body, :status, :iamge, :comment, :tag_ids).merge(user_id: current_user.id)
+  end
+
+  def blogtags_params
+    params.require(:blog).permit(:title, :body, :status, :iamge, :comment, :tag_ids, :tag_name).merge(user_id: current_user.id)
   end
 
   def set_blog
@@ -70,5 +84,19 @@ class BlogsController < ApplicationController
 
   def move_to_index
     redirecto_to root_path unless user_signed_in? || @blog.user.id == current_user.id
+  end
+
+  # tag編集時のメソッド 構築途中
+  def save_tags(tag_list)
+    current_tags = tag_list
+    new_tags = blogtags_params[:tag_ids]
+    tag_list = current_tags.replace(new_tags)
+    new_tag_arry = tag_list.split(',')
+    @tags = []
+    new_tag_arry.each do |tag_name|
+      @tag = Tag.where(tag_name: tag_name).first_or_initialize
+      @tag.save!
+      @tags << @tag
+    end
   end
 end

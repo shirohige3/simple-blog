@@ -106,12 +106,12 @@
   padding: 1vh 1vw;
 }
 .blog-contribute{
-  width: 35vw;
+  width: 48vw;
   font-size: 3vh;
   display: flex;
 }
 /* ブログようボタンまわり */
-.action-btn,.action-btn2{
+.action-btn,.action-btn2.tag-block{
   padding-top: 2px;
   height: 5vh;
   width: 10vw;
@@ -178,4 +178,25 @@ select{
   object-fit: cover;
   height: 100px;
   width: 100vw;
+}
+.tag-block{
+  height: 5vh;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+}
+.tag-form{
+  margin-top: 0.5vh;
+  font-size: 2vh;
+  height: 3.5vh;
+  width:5vw ;
+  padding: 1px;
+}
+.tag-list{
+  font-size: 1.5vh;
+  text-align: left;
+}
+.contribute-title{
+  width: 70vw;
+  
 }

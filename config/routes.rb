@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :blogs do
     collection do
-      get 'confirm'
+      get 'confirm' 
     end
    resources :comments, only: :create
     collection do 

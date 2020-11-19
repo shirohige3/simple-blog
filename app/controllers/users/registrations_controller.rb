@@ -3,8 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  prepend_before_action :authenticate_scope!, only:[:edit, :edit_password, :update, :update_password, :destroy]
-
+  prepend_before_action :authenticate_scope!, only: %i[edit edit_password update update_password destroy]
+  before_action :search_blog, only: [:edit]
 
   # GET /resource/sign_up
   # def new
@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-  @user = current_user
+    @user = current_user
   end
 
   # PUT /resource
@@ -32,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render action: :edit
     end
   end
-
 
   # DELETE /resource
   # def destroy
@@ -62,17 +61,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     # if params[:password].blank? && params[:password_confirmation].blank? && params[:current_password].blank?
-     resource.update_without_password(params)
+    resource.update_without_password(params)
     # else
-      # resource.update_with_password(params)
+    # resource.update_with_password(params)
     # end
   end
 
   # update後にマイページ
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(@user.id)
   end
 
+  def search_blog
+    @q = Blog.ransack(params[:q]) # 検索オブジェクト生成
+  end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)

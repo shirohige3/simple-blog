@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show destroy edit]
   before_action :move_to_index, only: %i[show edit]
+  before_action :search_blog
 
   def index
     @users = User.includes(:blog).order('created_at DESC')
@@ -22,25 +23,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # def destroy
-  #  if @user.destroy
-  #     redirecto_to root_path
-  #  else
-  #     render :show
-  #  end
-  # end
-
-  # def update
-  #   if @user.update
-  #     redirect_to user_edit_path
-  #   else
-  #     render "users#show"
-  #   end
-  # end
+  def search; end
 
   def show
     @user = User.find(params[:id])
-    @blogs = current_user.blogs
+    @blogs = current_user.blogs.order('created_at DESC')
   end
 
   private
@@ -54,8 +41,10 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? || @user.id == current_user.id
-      redirect_to root_path 
-    end
+    redirect_to root_path unless user_signed_in? || @user.id == current_user.id
+  end
+
+  def search_blog
+    @q = Blog.ransack(params[:q])   # 検索オブジェクト生成
   end
 end

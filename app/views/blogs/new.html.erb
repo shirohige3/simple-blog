@@ -10,7 +10,7 @@
      <%= render "shared/error_messages", model:@blog %>
 <div class="main-content">
   <div class="blog-head">
-   <%= form_with model:@blog, local: true do |f| %>
+   <%= form_with model:@blog, url: blogs_path, local: true do |f| %>
    <div class="title-box"> 
     <div class="blog-title2">
      <%= f.label :title, "タイトル" %>
@@ -30,13 +30,18 @@
  <div class="blog-contents2">
      <%# 記事内容投稿フォーム %>
     <div class="blog-contribute">
+      <div class="contribute-title">
         <%= f.label :body, "投稿内容作成" %>
-      <div class="action-btn">
-        <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
       </div>
-      <div class="action-btn2">
-        <%= f.submit "投稿", class:"contribute-btn"%>
-      </div>
+         <div class="tag-block">
+           <%= f.text_field :tag_ids, value:@tag_list, class:"tag-form", placeholder:"タグをつける。複数つけるには','で区切ってください。" %>
+         </div>
+          <div class="action-btn">
+            <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
+          </div>
+           <div class="action-btn2">
+             <%= f.submit "投稿", class:"contribute-btn"%>
+           </div>
     </div>
         <%= f.rich_text_area :body, class:"blog-form", id:"body", placeholder:"記事内容" %>
   <% end %>
