@@ -23,9 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
- def search
-
- end
+  def search; end
 
   def show
     @user = User.find(params[:id])
@@ -43,12 +41,10 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? || @user.id == current_user.id
-      redirect_to root_path 
-    end
+    redirect_to root_path unless user_signed_in? || @user.id == current_user.id
   end
 
   def search_blog
-    @q = Blog.ransack(params[:q])   #検索オブジェクト生成
+    @q = Blog.ransack(params[:q])   # 検索オブジェクト生成
   end
 end

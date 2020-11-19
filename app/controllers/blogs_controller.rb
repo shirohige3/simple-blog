@@ -7,13 +7,12 @@ class BlogsController < ApplicationController
   end
 
   def confirm
-    @blogs = Blog.draft.order("created_at DESC")
+    @blogs = Blog.draft.order('created_at DESC')
   end
 
   def new
     @blog = Blog.new(user_id: current_user.id)
     @blogs = Blog.where(id: params[:id])     # サイドバーに対してblogのidを配列として送る
-    
   end
 
   def create
@@ -35,18 +34,18 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @tag_list = @blog.tags.pluck(:tag_name).join(",")
+    @tag_list = @blog.tags.pluck(:tag_name).join(',')
   end
 
-  def update 
-      @blog.destroy
-      @blog = BlogTags.new(blogtags_params)
-      if @blog.valid?
-        @blog.save
-        redirect_to user_path(current_user.id)
-      else
-        render :new
-      end
+  def update
+    @blog.destroy
+    @blog = BlogTags.new(blogtags_params)
+    if @blog.valid?
+      @blog.save
+      redirect_to user_path(current_user.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -56,16 +55,12 @@ class BlogsController < ApplicationController
 
   def search
     @blogs = Blog.published.order('created_at DESC').search(params[:keyword])
-    if @blogs == nil
-      @blogs = []
-    end
+    @blogs = [] if @blogs.nil?
   end
 
   # 下書き・公開用
   def toggle_status!
-    if draft?
-      published
-    end
+    published if draft?
   end
 
   private
@@ -96,13 +91,12 @@ class BlogsController < ApplicationController
     current_tags = tag_list
     new_tags = blogtags_params[:tag_ids]
     tag_list = current_tags.replace(new_tags)
-    new_tag_arry = tag_list.split(",")
+    new_tag_arry = tag_list.split(',')
     @tags = []
     new_tag_arry.each do |tag_name|
       @tag = Tag.where(tag_name: tag_name).first_or_initialize
       @tag.save!
-      @tags << @tag 
+      @tags << @tag
     end
   end
 end
-
