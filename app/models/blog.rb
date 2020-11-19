@@ -15,20 +15,16 @@ class Blog < ApplicationRecord
 
   # Blogテーブルとの検索データのやり取り
   def self.search(search)
-    # if search != ''
-    #   Blog.where('title LIKE(?)', "%#{search}%")
-    # elsif params[:tag_name]
-    #   Blog.where("tag LIKE(?)", "%#{params[:tag_name]}%")
-    # else
-    #   Blog.all
-    # end
-
-    if search == "#{:tag_name}" && search != ""
-      Blog.where("tag LIKE(?)", "%#{search}")
-    elsif search != ''
-      Blog.where('title LIKE(?)', "%#{search}%")
-    else
-      Blog.all
+    if  search != ""
+      @tag = Tag.where('tag_name LIKE(?)', "%#{search}%")
+      @blog = Blog.where('title LIKE(?)', "%#{search}%")
+       if @tag.present?
+         blogtags = BlogTag.where(tag_id: @tag.ids)
+         blogtag = blogtags.pluck(:blog_id)
+         blog = Blog.where(id: blogtag)
+         @blog += blog
+       end
     end
   end
+
 end

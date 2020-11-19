@@ -6,26 +6,21 @@
       <%# 検索フォーム %>
  <div class="nav-content">
   <div class="search-block">
-   <%= form_with(url: search_blogs_path, local: true, method: :get, class: "search-form" ) do |f| %>
-    <%= f.text_field :keyword, placeholder:"記事検索", class:"search-input" %>
-    <%= f.submit '検索', class:"search-btn" %>
+   <%= form_with url: search_blogs_path, local: true, method: :get, class: "search-form"  do |f| %>
+    <%#= search_form_for @q do |f| %>
+      <%#= select_tag 'search[model]', options_for_select({ "タイトル" => "user", "タグ名" => "post" }) %>
+     <%#= f.search_field :title_cont, class:"search-input" %>
+      <%= f.text_field :keyword, placeholder:"検索内容を入力してください", class:"search-input" %>
+      <%= f.submit '検索', class:"search-btn" %>
    <% end %>
   </div>
  </div>
 </div>
 
  <div class="header-right">
-  <%# ユーザーアイコンなどを設置する %>
   <div class="user-list">
     <%# ログインしてるとマイページ。していなければログイン画面へ %>
    <% if user_signed_in? %>
-    <%# if @user.image.present? %>
-    <%# <div class="image-block"> %>
-     <%#=link_to current_user.image, class:"icon"%>
-    <%# else %>
-     <%#= link_to image_tag "no-image1.png", class: "blog-img"%>
-    <%# </div> %>
-    <%# end %>
      <%=link_to current_user.nickname, user_path(current_user.id), method: :get, class:"nickname"%>
    <% else %>
      <%=link_to "NoUser", user_session_path, class:"nickname"%>

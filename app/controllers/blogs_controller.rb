@@ -38,15 +38,6 @@ class BlogsController < ApplicationController
     @tag_list = @blog.tags.pluck(:tag_name).join(",")
   end
 
-  # def update 
-  #   tag_list = @blog.tags.pluck(:tag_name).join(",")
-  #   if @blog.update(blogs_params)
-  #      save_tags(tag_list)
-  #     redirect_to user_path(current_user.id)
-  #   else
-  #     render :edit
-  #   end
-  # end
   def update 
       @blog.destroy
       @blog = BlogTags.new(blogtags_params)
@@ -64,7 +55,10 @@ class BlogsController < ApplicationController
   end
 
   def search
-    @blogs = Blog.published.search(params[:keyword])
+    @blogs = Blog.published.order('created_at DESC').search(params[:keyword])
+    if @blogs == nil
+      @blogs = []
+    end
   end
 
   # 下書き・公開用
@@ -91,42 +85,24 @@ class BlogsController < ApplicationController
   def set_blog
     @blog = Blog.find(params[:id])
     @blogs = Blog.where(id: params[:id])
-    
   end
 
   def move_to_index
     redirecto_to root_path unless user_signed_in? || @blog.user.id == current_user.id
   end
 
-  # tag編集時のメソッド
-  # def save_tags(tag_list)
-  #   current_tags = tag_list
-  #   new_tags = blogtags_params[:tag_ids]
-  #   tag_list = current_tags.replace(new_tags)
-  #   new_tag_arry = tag_list.split(",")
-  #   @tags = []
-  #   new_tag_arry.each do |tag_name|
-  #     @tag = Tag.where(tag_name: tag_name).first_or_initialize
-  #     @tag.save
-  #     @tags << @tag 
-  #     # @blogtags = BlogTag.find(blogtag_id: @blogtag.id)
-  #     # @blogtags.update(blog_id: @blog.id, tag_id: @tag.id)
-  #   end
-  # end
-  # private
-  # def save_tags(tags_list)
-  #   current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-  #   old_tags = current_tags - tags_list
-  #   new_tags = tag_list - current_tags
-
-  #   old_tags.each do |old_name|
-  #     self.tags.delete Tag.find(tag_name: old_name)
-  #   end
-
-  #   new_tags.each do |new_name|
-  #     blog_tag = Tag.find_or_created_by(tag_name: new_name)
-  #     self.tags << blog_tag
-  #   end
-  # end
+  # tag編集時のメソッド 構築途中
+  def save_tags(tag_list)
+    current_tags = tag_list
+    new_tags = blogtags_params[:tag_ids]
+    tag_list = current_tags.replace(new_tags)
+    new_tag_arry = tag_list.split(",")
+    @tags = []
+    new_tag_arry.each do |tag_name|
+      @tag = Tag.where(tag_name: tag_name).first_or_initialize
+      @tag.save!
+      @tags << @tag 
+    end
+  end
 end
 

@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
   prepend_before_action :authenticate_scope!, only:[:edit, :edit_password, :update, :update_password, :destroy]
+  before_action :search_blog, only:[:edit]
 
 
   # GET /resource/sign_up
@@ -73,6 +74,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(@user.id)
   end
 
+  def search_blog
+    @q = Blog.ransack(params[:q])   #検索オブジェクト生成
+  end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
