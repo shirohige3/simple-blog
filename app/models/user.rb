@@ -18,4 +18,12 @@ class User < ApplicationRecord
 
   # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
   # validates :password, format: { with: PASSWORD_REGEX }
+  validate :password_complexity
+  
+  def password_complexity
+    return if password.blank? || password =~ /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}$/
+
+    errors.add :password, 'は半角英数字で6文字以上で入力してください。'
+  end
+
 end

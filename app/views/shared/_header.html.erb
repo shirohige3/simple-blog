@@ -7,9 +7,6 @@
  <div class="nav-content">
   <div class="search-block">
    <%= form_with url: search_blogs_path, local: true, method: :get, class: "search-form"  do |f| %>
-    <%#= search_form_for @q do |f| %>
-      <%#= select_tag 'search[model]', options_for_select({ "タイトル" => "user", "タグ名" => "post" }) %>
-     <%#= f.search_field :title_cont, class:"search-input" %>
       <%= f.text_field :keyword, placeholder:"検索内容を入力してください", class:"search-input" %>
       <%= f.submit '検索', class:"search-btn" %>
    <% end %>
