@@ -18,12 +18,11 @@ class Blog < ApplicationRecord
     if search != ''
       @tag = Tag.where('tag_name LIKE(?)', "%#{search}%")
       @blog = Blog.where('title LIKE(?)', "%#{search}%")
-      if @tag.present?
         blogtags = BlogTag.where(tag_id: @tag.ids)
         blogtag = blogtags.pluck(:blog_id)
         blog = Blog.where(id: blogtag)
         @blog += blog
-      end
+        @blog.uniq   #uniqで重複したやつは消す
     end
   end
 end

@@ -55,7 +55,7 @@ class BlogsController < ApplicationController
 
   def search
     @blogs = Blog.published.order('created_at DESC').search(params[:keyword])
-    @blogs = [] if @blogs.nil?
+    @blogs = [] if @blogs.nil?        #@bligsが空なら配列なしで展開する。
   end
 
   # 下書き・公開用
@@ -87,16 +87,16 @@ class BlogsController < ApplicationController
   end
 
   # tag編集時のメソッド 構築途中
-  def save_tags(tag_list)
-    current_tags = tag_list
-    new_tags = blogtags_params[:tag_ids]
-    tag_list = current_tags.replace(new_tags)
-    new_tag_arry = tag_list.split(',')
-    @tags = []
-    new_tag_arry.each do |tag_name|
-      @tag = Tag.where(tag_name: tag_name).first_or_initialize
-      @tag.save!
-      @tags << @tag
-    end
-  end
+  # def save_tags(tag_list)
+  #   current_tags = tag_list
+  #   new_tags = blogtags_params[:tag_ids]
+  #   tag_list = current_tags.replace(new_tags)
+  #   new_tag_arry = tag_list.split(',')
+  #   @tags = []
+  #   new_tag_arry.each do |tag_name|
+  #     @tag = Tag.where(tag_name: tag_name).first_or_initialize
+  #     @tag.save!
+  #     @tags << @tag
+  #   end
+  # end
 end
