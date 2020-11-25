@@ -3,8 +3,7 @@
   <div class="info">
    メニュー
   </div>
-  
-   <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class="side-menu">
       <div class="block">
        <%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %>
@@ -12,23 +11,21 @@
         <div class="block">
          <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
         </div>
-   <% else %>
-    <div class="block">
-     <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
-    </div>
+    <% else %>
      <div class="block">
-      <%= link_to "ログイン",user_session_path, class:"log-in" %>
+      <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
      </div>
-   <% end %>
-    <div class="block">
-     <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
-   </div>
-
- <div class="nav-content">
-   <%= render "shared/side_search" %>
+      <div class="block">
+       <%= link_to "ログイン",user_session_path, class:"log-in" %>
+      </div>
+    <% end %>
+     <div class="block">
+      <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
+    </div>
+  <div class="nav-content">
+    <%= render "shared/side_search" %>
+  </div>
  </div>
- </div>
-</div>
   <%# 下段UI %>
   <div class="info2">
    過去投稿記事
