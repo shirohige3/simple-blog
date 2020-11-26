@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
       @blog.save
       redirect_to user_path(current_user.id)
     else
-      @blog = Blog.new(user_id: current_user.id)
+      @blog = Blog.new(user_id: current_user.id)  #これだとエラ〜メッセージが出ないのでflashなどを使用して改善する。
       render :new
     end
   end

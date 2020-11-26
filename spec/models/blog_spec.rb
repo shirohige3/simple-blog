@@ -6,7 +6,7 @@ RSpec.describe Blog, type: :model do
   end
   describe '記事を投稿する' do
     context '記事が投稿できる時' do
-      it 'title,bodyが存在している時' do
+      it 'titleが存在している時' do
         expect(@blog).to be_valid
       end
     end
@@ -15,11 +15,6 @@ RSpec.describe Blog, type: :model do
         @blog.title = ''
         @blog.valid?
         expect(@blog.errors.full_messages).to include("Title を入力してください。")
-      end
-      it 'bodyがないと投稿できない' do
-        @blog.body = ''
-        @blog.valid?
-        expect(@blog.errors.full_messages).to include("Body を入力してください。")
       end
     end
   end
