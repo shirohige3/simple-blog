@@ -8,10 +8,7 @@ class Blog < ApplicationRecord
   has_one_attached :image, dependent: :destroy
   has_rich_text :body    # Actiontext
 
-  with_options presence: true do
-    validates :title
-    validates :body
-  end
+  validates :title,    presence: true
 
   # Blogテーブルとの検索データのやり取り
   def self.search(search)

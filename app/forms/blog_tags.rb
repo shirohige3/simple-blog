@@ -3,10 +3,7 @@ class BlogTags
   attr_accessor :title, :status, :tag_name, :body, :comment, :iamge, :user_id, :tag_ids, :tag_id, :blog_id
 
   # blog用バリデーション
-  with_options presence: true do
-    validates :title
-    validates :body
-  end
+  validates :title,     presence: true
 
   def save
     blog = Blog.create(title: title, status: status, body: body, user_id: user_id)

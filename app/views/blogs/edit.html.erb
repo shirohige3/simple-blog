@@ -3,7 +3,7 @@
   <%= render "shared/header" %>
 </div>
 <div class="side-bar">
-  <%= render "shared/side_bar3" %>
+  <%= render "shared/side_bar_edit" %>
 </div>
 
     <%# 記事投稿フォーム作成 %>
@@ -33,7 +33,7 @@
         <%= f.label :body, "投稿内容作成" %>
        </div>
          <div class="tag-block">
-           <%= f.text_field :tag_ids, value:@tag_list, class:"tag-form", placeholder:"タグ1"%>
+           <%= f.text_field :tag_ids, value:@tag_list, class:"tag-form", placeholder:"タグをつける。複数つけるには','で区切ってください。"%>
          </div>
           <div class="action-btn">
            <%=f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>

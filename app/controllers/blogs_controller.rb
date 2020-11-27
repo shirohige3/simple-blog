@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
       @blog.save
       redirect_to user_path(current_user.id)
     else
+      @blog = Blog.new(user_id: current_user.id)  #これだとエラ〜メッセージが出ないのでflashなどを使用して改善する。
       render :new
     end
   end
@@ -38,13 +39,13 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog.destroy
-    @blog = BlogTags.new(blogtags_params)
-    if @blog.valid?
-      @blog.save
+    @newblog = BlogTags.new(blogtags_params)
+    if @newblog.valid?
+      @newblog.save
+      @blog.destroy
       redirect_to user_path(current_user.id)
     else
-      render :new
+      render :edit
     end
   end
 
