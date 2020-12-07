@@ -27,7 +27,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blogs = current_user.blogs.order('created_at DESC')
+    if @user == current_user
+     @blogs = current_user.blogs.order('created_at DESC')
+    else
+      @blogs = @user.blogs.order("created_at DESC")
+    end
   end
 
   def follow_list

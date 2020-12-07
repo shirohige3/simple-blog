@@ -11,7 +11,7 @@
        フォローリスト
       </div>
        <div class="follow-sort">
-        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+        <% @user.following_user.where.not(id: @user.id).each do |user| %>
          <div class="follow-list">
           <% if user.image.present? %>
            <%= image_tag user.image, class: "user-img-follow" if user.image.attached? %>
@@ -37,7 +37,7 @@
        フォロワーリスト
       </div>
        <div class="follow-sort">
-        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+        <% @user.follower_user.where.not(id: @user.id).each do |user| %>
          <div class="follow-list">
            <% if user.image.present? %>
              <%= image_tag user.image, class: "user-img-follow" if user.image.attached? %>
@@ -52,7 +52,9 @@
               <% if current_user.following?(user) %>
                <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
               <% else %>
-               <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"follow-btn" %>
+               <% unless current_user.id == user.id%>
+                <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"follow-btn" %>
+               <% end %>
               <% end %>
              </div>
            </div>
