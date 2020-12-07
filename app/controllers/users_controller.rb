@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     @blogs = current_user.blogs.order('created_at DESC')
   end
 
+  def follow_list
+   
+  end
+
   private
 
   def user_params

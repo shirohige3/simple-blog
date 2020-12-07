@@ -1,0 +1,16 @@
+<div class="follow-block">
+  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+   <div class="block">
+    <%= link_to "#{user.nickname}さんの投稿一覧へ", user_path(user.id), method: :get, class:"nickname-link" %>
+   </div>
+    <% if current_user.following?(user) %>
+     <div class="block">
+      <%= link_to "フォロー解除する", unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+      </div>
+    <% else %>
+     <div class="block">
+      <%= link_to "フォローする", follow_path(user.id), method: :POST, class:"follow-btn" %>
+     </div>
+    <% end %>
+  <% end %>
+</div>

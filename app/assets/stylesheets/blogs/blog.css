@@ -187,9 +187,9 @@ select{
 }
 .tag-form{
   margin-top: 0.5vh;
-  font-size: 2vh;
+  font-size: 1.3vh;
   height: 3.5vh;
-  width:5vw ;
+  width:17vw ;
   padding: 1px;
 }
 .tag-list{

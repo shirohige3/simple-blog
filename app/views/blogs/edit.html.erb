@@ -1,10 +1,6 @@
 <%# ブログ編集ページ %>
-<div class="header">
-  <%= render "shared/header" %>
-</div>
-<div class="side-bar">
-  <%= render "shared/side_bar_edit" %>
-</div>
+<%= render "shared/header" %>
+ <%= render "shared/side_bar_edit" %>
 
     <%# 記事投稿フォーム作成 %>
    <%= render "shared/error_messages", model:@blog %>

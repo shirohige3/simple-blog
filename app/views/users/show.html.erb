@@ -1,13 +1,20 @@
 <%# <マイページ> %>
 <%= render "shared/header"%>
- <div class="side-bar">
-   <%= render "shared/side_bar_user"%>
- </div>
-   <%# <ブログ展開> %>
+ <%= render "shared/side_bar_user"%>
+   
 <div class="main-content">
   <div class="title">
    <%= @user.nickname %>さんのマイページ
+    <div class="follow-box">
+      <div class="follow">
+       <%= link_to "フォロー人数:#{@user.follower.count}", user_relationships_path(@user.id), method: :get %>
+      </div>
+      <div class="follow">
+       <%= link_to "フォロワー人数:#{@user.followed.count}", user_relationships_path(@user.id), method: :get %>
+      </div>
+    </div>
   </div>
+  <%# <ブログ展開> %>
    <div class="blog-contents">
     <% if @blogs.size > 0  %> 
       <%= render "shared/blog"%>

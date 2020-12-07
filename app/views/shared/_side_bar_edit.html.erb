@@ -1,32 +1,32 @@
 <%# 記事作成ページ対応サイドバーコンテンツ %>
-<div class="side-contents">
+<div class="side-bar">
+ <div class="side-contents">
   <div class="info">
    メニュー
   </div>
-  
-   
- <div class="side-menu">
-   <% if user_signed_in? %>
-    <div class="block">
+  <div class="side-menu">
+    <% if user_signed_in? %>
+     <div class="block">
        <%= link_to "マイページ", user_path(current_user.id), method: :get, class:"my-menu"  %>
-    </div>
-    <div class="block">
-     <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
-    </div>
-   <% else %>
-    <div class="block">
-     <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
      </div>
      <div class="block">
-     <%= link_to "ログイン",user_session_path, class:"log-in" %>
-    </div>
-   <% end %>
-    <div class="block">
+      <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
+     </div>
+    <% else %>
+     <div class="block">
+      <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
+      </div>
+      <div class="block">
+      <%= link_to "ログイン",user_session_path, class:"log-in" %>
+     </div>
+    <% end %>
+     <div class="block">
       <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
-   </div>
+     </div>
   
-  <div class="nav-content">
-    <%= render "shared/side_search" %>
+   <div class="nav-content">
+     <%= render "shared/side_search" %>
+   </div>
   </div>
  </div>
 </div>

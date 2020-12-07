@@ -50,6 +50,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @comment = Comment.new
     @comments = @blog.comments.includes(:user)
   end
