@@ -1,0 +1,88 @@
+.follow-block{
+  margin-left: auto;margin-right: auto;
+}
+
+.follow-box{
+  height: 6.5vh;
+  width: 11vw;
+  margin: 1vh 1.5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.follow,.follow-index{
+  margin-left: 1vw;
+  font-size: 2vh;
+  text-shadow: none;
+}
+
+.follow-index{
+  font-size: 3vh;
+}
+
+.follow-btn,.unfollow-btn{
+  font-size: 2vh;
+  padding   :2vh;   /* 余白       */
+}
+
+.follow-sort{
+  height: 74vh;
+  width: 24.3vw;
+  margin: 0.6vh;
+  margin-left: auto;margin-right: auto;
+  background-color: white;
+  overflow: auto;
+}
+
+.follow-contents{
+  display: flex;
+  justify-content: space-around;
+  overflow: auto;
+}
+
+.follow-list{
+  height: 13vh;
+  width: 22.5vw;
+  display: flex;
+  background-color: white;
+  margin: 0.5vw;
+  margin-left: auto;margin-right: auto;
+  padding: 0.5vh;
+  border-top: solid grey 1px;
+  border-bottom:solid grey 1px ;
+  overflow: hidden;
+}
+
+.user-img-follow{
+  height: 11.5vh;
+  width: 6vw;
+  object-fit: contain;   /*  画像嵌め込みしき*/
+  margin: auto;
+  border: 1px solid black;
+} 
+
+.follow-user{
+ height: 7vh;
+ width: 15vw;
+ text-decoration: none;
+}
+
+.follow-nickname{
+ font-size: 3.5vh;
+ color: black;
+}
+
+.follow-nickname:hover{
+  box-shadow    : none;
+  color: white;
+  background: blue;
+}
+
+.follow-btn-block{
+
+}
+
+.follow-name-btn{
+ height: 11.5vh;
+ width: 15vw;
+}
