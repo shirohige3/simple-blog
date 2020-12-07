@@ -11,10 +11,19 @@ Rails.application.routes.draw do
     get 'users/password', to: 'users/passwords#edit'
     put 'users/password', to: 'users/passwords#update'
   end 
+
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   
   root to: "blogs#index"
   
-  resources :users, only: [:index, :new, :create, :show] 
+  resources :users, only: [:index, :new, :create, :show] do
+    resources :relationships
+    collection do
+      get "follower"
+    end
+    # resources :relationships
+  end
 
   resources :blogs do
     collection do

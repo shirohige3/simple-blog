@@ -1,4 +1,5 @@
 <%# 個人ページ対応サイドバーコンテンツ %>
+<div class="side-bar">
  <div class="side-contents">
   <div class="info">
    メニュー
@@ -26,14 +27,17 @@
    <div class="nav-content">
     <%= render "shared/side_search" %>
    </div>
-</div>
+ </div>
 
   <%# 下段UI %>
   <%# <自分のブログだけを表示したいが未定&& @blogs.ids(user_id: current_user.id)> %>
-  <div class="edit-block">
-   <% if user_signed_in? && current_user.id == @blog.user_id  %>
-     <%= link_to "編集する", edit_blog_path, class:"edit-btn"%>
-     <%= link_to "削除する", blog_path, method: :delete, class:"delete-btn"%>
-     <% end %> 
-  </div>
+    <% if user_signed_in? && current_user.id == @blog.user_id  %>
+     <div class="edit-block">
+      <%= link_to "編集する", edit_blog_path, class:"edit-btn"%>
+      <%= link_to "削除する", blog_path, method: :delete, class:"delete-btn"%>
+     </div>
+    <% else %>
+     <%= render "shared/follow_link"%>
+    <% end %> 
+ </div>
 </div>

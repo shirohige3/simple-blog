@@ -88,6 +88,8 @@
 - has_many         :comments
 - has_many         :messages
 - has_one_attached :image
+- has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+- has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 
 ## blogs テーブル
 | Column           | Type       | Options                        |
@@ -161,6 +163,14 @@
 - belongs_to :user
 - belongs_to :room
 
+## relationship テーブル
+| Column           | Type       | Options                        |
+| ---------------- | -----------| ------------------------------ |
+| follower         | integer    |                                |
+| followed         | integer    |                                |
+### Association
+- belongs_to :following_user, through: :follower, source: :followed
+- belongs_to :follower_user, thorough: :followed, source: :follower
 
 
 

@@ -1,0 +1,64 @@
+  <%= render "shared/header" %>
+   <%= render "shared/side_bar_profile"%>
+
+ <div class="main-content">
+  <div class="title">
+   フォロー / フォロワー・リスト
+  </div>
+   <div class="follow-contents">
+     <div class="follow-content">
+      <div class="follow-index">
+       フォローリスト
+      </div>
+       <div class="follow-sort">
+        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+         <div class="follow-list">
+          <% if user.image.present? %>
+           <%= image_tag user.image, class: "user-img-follow" if user.image.attached? %>
+          <% else %>
+           <%= image_tag "no-image.jpeg", class: "user-img-follow"%>
+          <% end %>
+          <div class="follow-name-btn">
+           <div class="follow-user">
+            <%= link_to "#{user.nickname}さん", user_path(user.id), method: :get, class:"follow-nickname" %>
+           </div>
+           <div class="follow-btn-block">
+            <% if current_user.following?(user) %>
+             <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+            <% end %>
+            </div>
+           </div>
+         </div>
+        <% end %>
+       </div>
+     </div>
+     <div class="follow-content">
+      <div class="follow-index">
+       フォロワーリスト
+      </div>
+       <div class="follow-sort">
+        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+         <div class="follow-list">
+           <% if user.image.present? %>
+             <%= image_tag user.image, class: "user-img-follow" if user.image.attached? %>
+           <% else %>
+             <%= image_tag "no-image.jpeg", class: "user-img-follow"%>
+           <% end %>
+           <div class="follow-name-btn">
+            <div class="follow-user">
+             <%= link_to "#{user.nickname}さん", user_path(user.id), method: :get, class:"follow-nickname" %>
+            </div>
+             <div class="follow-btn-block">
+              <% if current_user.following?(user) %>
+               <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+              <% else %>
+               <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"follow-btn" %>
+              <% end %>
+             </div>
+           </div>
+         </div>
+        <% end %>
+       </div>
+      </div>
+   </div>
+ </div>
