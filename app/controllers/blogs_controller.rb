@@ -18,6 +18,7 @@ class BlogsController < ApplicationController
   def create
     @blog = BlogTags.new(blogtags_params)
     if @blog.valid?
+      binding.pry
       @blog.save
       redirect_to user_path(current_user.id)
     else
@@ -39,6 +40,7 @@ class BlogsController < ApplicationController
   end
 
   def update
+    binding.pry
     @newblog = BlogTags.new(blogtags_params)
     if @newblog.valid?
       @newblog.save
@@ -72,11 +74,11 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :body, :status, :iamge, :comment, :tag_ids).merge(user_id: current_user.id)
+    params.require(:blog).permit(:title, :body, :status, :image, :comment, :tag_ids).merge(user_id: current_user.id)
   end
 
   def blogtags_params
-    params.require(:blog).permit(:title, :body, :status, :iamge, :comment, :tag_ids, :tag_name).merge(user_id: current_user.id)
+    params.require(:blog).permit(:title, :body, :status, :image, :comment, :tag_ids, :tag_name).merge(user_id: current_user.id)
   end
 
   def set_blog
