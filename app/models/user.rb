@@ -19,8 +19,6 @@ class User < ApplicationRecord
   validates :full_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :email,          presence: true, format: { with: /@+/ }
 
-  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
-  # validates :password, format: { with: PASSWORD_REGEX }
   validate :password_complexity
   
   def password_complexity
