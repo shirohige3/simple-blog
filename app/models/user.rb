@@ -26,6 +26,13 @@ class User < ApplicationRecord
     errors.add :password, 'は半角英数字で6文字以上で入力してください。'
   end
 
+  #ゲストログイン用
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # ユーザーをフォローする
 def follow(user_id)
   follower.create(followed_id: user_id)
