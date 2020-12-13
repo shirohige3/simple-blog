@@ -21,6 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   #ゲストログイン用アクション
   def new_guest
     user = User.guest
+    # binding.pry
     sign_in user
     redirect_to root_path
   end
