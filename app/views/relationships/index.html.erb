@@ -22,12 +22,14 @@
            <div class="follow-user">
             <%= link_to "#{user.nickname}さん", user_path(user.id), method: :get, class:"follow-nickname" %>
            </div>
-           <div class="follow-btn-block">
-            <% if current_user.following?(user) %>
-             <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+            <% if user_signed_in? %>
+             <div class="follow-btn-block">
+              <% if current_user.following?(user) %>
+               <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+              <% end %>
+              </div>
             <% end %>
-            </div>
-           </div>
+          </div>
          </div>
         <% end %>
        </div>
@@ -48,6 +50,7 @@
             <div class="follow-user">
              <%= link_to "#{user.nickname}さん", user_path(user.id), method: :get, class:"follow-nickname" %>
             </div>
+            <% if user_signed_in? %>
              <div class="follow-btn-block">
               <% if current_user.following?(user) %>
                <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
@@ -57,6 +60,7 @@
                <% end %>
               <% end %>
              </div>
+            <% end %>
            </div>
          </div>
         <% end %>

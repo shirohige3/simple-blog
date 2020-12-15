@@ -2,6 +2,7 @@
    <div class="block">
     <%= link_to "#{@blog.user.nickname}さんの投稿一覧へ", user_path(@blog.user.id), method: :get, class:"nickname-link" %>
    </div>
+   <% if user_signed_in? %>
     <% if current_user.following?(@blog.user) %>
      <div class="block">
       <%= link_to "フォロー解除する", unfollow_path(@blog.user.id), method: :POST, class:"unfollow-btn" %>
@@ -11,4 +12,5 @@
       <%= link_to "フォローする", follow_path(@blog.user.id), method: :POST, class:"follow-btn" %>
      </div>
     <% end %>
+   <% end %>
 </div>
