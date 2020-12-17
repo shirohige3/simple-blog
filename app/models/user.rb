@@ -28,7 +28,8 @@ class User < ApplicationRecord
 
   #ゲストログイン用
   def self.guest
-    find_or_create_by(nickname: "ゲスト", full_name: "ゲスト", full_name_kana: "ゲスト", email: 'guest@example.com') do |user|
+    User.find_or_create_by(nickname: "ゲスト", full_name: "ゲスト", full_name_kana: "ゲスト", email: 'guest@example.com') do |user|
+      user.id = 0
       user.nickname = "ゲスト"
       user.full_name = "ゲスト"
       user.full_name_kana = "ゲスト"

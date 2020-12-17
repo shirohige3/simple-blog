@@ -20,10 +20,13 @@ class Users::SessionsController < Devise::SessionsController
 
   #ゲストログイン用アクション
   def new_guest
-    user = User.guest
-    sign_in user
+    @user = User.guest
+    sign_in @user
+    if user_signed_in?
     redirect_to root_path
-  end
+    end
+    binding.pry
+end
 
   protected
   # If you have extra params to permit, append them to the sanitizer.

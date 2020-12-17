@@ -35,7 +35,6 @@ class UsersController < ApplicationController
   end
 
   def follow_list
-   
   end
 
   private
