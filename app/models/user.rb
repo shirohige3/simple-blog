@@ -26,7 +26,7 @@ class User < ApplicationRecord
     errors.add :password, 'は半角英数字で6文字以上で入力してください。'
   end
 
-  #ゲストログイン用
+  #ゲストログイン用 find_byでゲスト検索。なければcreteする。
   def self.guest
     User.find_or_create_by(nickname: "ゲスト", full_name: "ゲスト", full_name_kana: "ゲスト", email: 'guest@example.com') do |user|
       user.id = 0
