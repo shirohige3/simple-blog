@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
   
-  attr_accessor :current_password # user_editpasswordなしで更新に必要?
+  attr_accessor :current_password # user_editpasswordなしで更新に必要
 
   validates :nickname,       presence: true, length: { maximum: 10 }
   validates :full_name,      presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
