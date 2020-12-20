@@ -28,12 +28,8 @@ class User < ApplicationRecord
 
   #ゲストログイン用 find_byでゲスト検索。なければcreteする。
   def self.guest
-    User.find_or_create_by(nickname: "ゲスト", full_name: "ゲスト", full_name_kana: "ゲスト", email: 'guest@example.com') do |user|
-      user.id = 0
+    User.find_or_create_by(nickname: "ゲスト") do |user|
       user.nickname = "ゲスト"
-      user.full_name = "ゲスト"
-      user.full_name_kana = "ゲスト"
-      user.encrypted_password = SecureRandom.urlsafe_base64
     end
   end
 

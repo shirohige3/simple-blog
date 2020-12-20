@@ -25,7 +25,6 @@ class Users::SessionsController < Devise::SessionsController
     if user_signed_in?
     redirect_to root_path
     end
-    binding.pry
 end
 
   protected
