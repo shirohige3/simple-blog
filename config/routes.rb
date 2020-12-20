@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     put 'users/password/new', to: 'users/passwords#new'
     get 'users/password', to: 'users/passwords#edit'
     put 'users/password', to: 'users/passwords#update'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest' #ゲストログイン用
   end 
 
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする

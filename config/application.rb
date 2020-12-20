@@ -20,6 +20,6 @@ module SimpleBlog
     config.assets.initialize_on_precompile = false
 
     #日本語化に必須の設定？
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show destroy edit]
-  before_action :move_to_index, only: %i[show edit]
+  before_action :move_to_index, only: %i[ edit]
   before_action :search_blog
 
   def index
@@ -35,7 +35,6 @@ class UsersController < ApplicationController
   end
 
   def follow_list
-   
   end
 
   private

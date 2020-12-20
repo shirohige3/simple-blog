@@ -19,13 +19,18 @@ class User < ApplicationRecord
   validates :full_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :email,          presence: true, format: { with: /@+/ }
 
-  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i.freeze
-  # validates :password, format: { with: PASSWORD_REGEX }
   validate :password_complexity
   
   def password_complexity
     return if password.blank? || password =~ /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}$/
     errors.add :password, 'は半角英数字で6文字以上で入力してください。'
+  end
+
+  #ゲストログイン用 find_byでゲスト検索。なければcreteする。
+  def self.guest
+    User.find_or_create_by(nickname: "ゲスト") do |user|
+      user.nickname = "ゲスト"
+    end
   end
 
   # ユーザーをフォローする
