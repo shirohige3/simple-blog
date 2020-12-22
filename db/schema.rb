@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_101003) do
+ActiveRecord::Schema.define(version: 2020_12_22_101555) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 2020_12_22_101003) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["blog_id"], name: "index_comments_on_blog_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message_text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
