@@ -127,8 +127,6 @@
 ## rooms テーブル
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
-| room_name        | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
 ### Association
 - has_many  :messages
 - has_many  :usr_rooms
