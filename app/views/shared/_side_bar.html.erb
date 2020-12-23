@@ -12,6 +12,9 @@
         <div class="block">
          <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
         </div>
+        <div class="block">
+         <%= link_to "メッセージ", rooms_path, class:"my-menu"%>
+        </div>
     <% else %>
      <div class="block">
       <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>
