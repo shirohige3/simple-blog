@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     collection do
       get "follower"
     end
-    # resources :relationships
   end
 
   resources :blogs do

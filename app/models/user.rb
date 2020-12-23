@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :messages
   has_many :user_rooms
-  has_many :rooms, thorugh: :user_rooms
+  has_many :rooms, through: :user_rooms
   has_one_attached :image
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
