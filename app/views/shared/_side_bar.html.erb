@@ -13,7 +13,7 @@
          <%= link_to "記事を書く", new_blog_path, class:"new-blog" %>
         </div>
         <div class="block">
-         <%= link_to "メッセージ", rooms_path, class:"my-menu"%>
+         <%= link_to "メッセージ", user_relationships_path(current_user), class:"my-menu"%>
         </div>
     <% else %>
      <div class="block">

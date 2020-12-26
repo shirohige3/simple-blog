@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   
   def index
+    binding.pry
     @rooms = Room.includes(:user)
   end
 
@@ -20,6 +21,6 @@ class RoomsController < ApplicationController
     private
 
     def room_params
-      params.require(:room).permit(user_ids: [])
+      params.require(:room).permit(:user_ids[], :nickname)
     end
 end
