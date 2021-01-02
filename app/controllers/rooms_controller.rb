@@ -1,6 +1,4 @@
 class RoomsController < ApplicationController
-#   before_action :create, only: %i[index]
-
 #   def index
 #     @user = User.find(params[:user_id])
 #     @rooms = Room.includes(:user)
@@ -11,7 +9,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(room_params)
+    # @roomは既存のものがあればそのまま使用 first_or_initialize
+    @room = Room.where(user_ids:[]).first_or_initialize
     if @room.save
       redirect_to room_messages_path(@room)
     else
