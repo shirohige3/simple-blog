@@ -1,0 +1,10 @@
+.room-field{
+  height: 30vh;
+  width: 45vw;
+  margin: auto;
+  background-color: blue;
+}
+
+.main-content-room{
+  height: 35vh;
+}

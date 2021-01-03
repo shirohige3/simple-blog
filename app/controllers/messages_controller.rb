@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = @room.messages.includes(:user)
-     #    #roomに紐つくmessagesを全て定義。user情報も追加。
-    binding.pry
+     #roomに紐つくmessagesを全て定義。user情報も追加。
   end
   def create
     @room = Room.find(params[:room_id])
