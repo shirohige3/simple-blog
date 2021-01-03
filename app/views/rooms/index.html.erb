@@ -26,7 +26,7 @@
       <div class='chat-room-form__field--right'>
       <select name="room[user_ids][]">
        <option value="">ユーザーを選択</option>
-       <% User.all.where.not(id: current_user.id).each do |user| %>
+       <% current_user.following_user.all.where.not(id: current_user.id ).each do |user| %>
         <option value=<%=user.id%>><%= user.nickname %></option>
        <% end %>
        </select>
