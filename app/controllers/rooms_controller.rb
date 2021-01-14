@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @rooms = Room.all
   end
 
   def create
@@ -21,13 +22,15 @@ class RoomsController < ApplicationController
   end
 
   def show
-    binding.pry
     @message = Message.find(params[:id])
   end
  
    def destroy
-     room.destroy
-     redirect_to root_path
+     if @room.destroy
+       redirect_to new_room_path(current_user.id)
+     else
+      render :new
+     end
    end
  
    private

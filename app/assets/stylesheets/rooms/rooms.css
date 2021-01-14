@@ -1,9 +1,8 @@
-.room-field{
+.room-fields{
   height: 23vh;
   width: 45vw;
   margin-left: auto;margin-right: auto;
   margin: auto;
-  background-color: blue;
 }
 
 .room-contents{
@@ -16,7 +15,48 @@
   overflow: auto;
 }
 
+.room-field{
+  width: 80vh;
+  margin-top: 3vh;
+}
+.room-label{
+  height: 5vh;
+  font-size: 3vh;
+}
+.room-name{
+  height: 5vh;
+  width: 40vw;
+  font-size: 2vh;
+}
+
+.follow-contents{
+  display: block;
+  overflow: unset;
+}
+
 .room-form-users{
   width: 30vw;
   background-color: cyan;
+}
+
+.form-messages-content{
+  height: 10vh;
+  background-color: black;
+}
+
+
+.message-text{
+  background-color: blue;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.message-form{
+  height: 7vh;
+  width: 40vw;
+}
+
+.select-box: :after{
+  width: 40vw;
+  background-color: azure;
 }

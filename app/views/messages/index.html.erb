@@ -1,24 +1,28 @@
 <%= render "shared/header"%>
-<%= render "shared/side_bar_edit" %>
+<%= render "shared/side_bar_room" %>
 
 <div class="main-content">
  <div class="title">
   <%= @room.name %>
  </div>
+  <div class="my-menu">
+   <%= link_to "ルーム削除", room_path(@room.id), method: :delete, class:"title" %>
+   </div>
+
   <div class="blog-content-show">
       <div class="follow-contents">
-       <div class="message">
+       <div class="message-text">
         <div class="upper-message">
-         <div class="message-user">
           <% if @messages %>
            <% @messages.each do |message| %>
-            <%# 投稿したユーザー情報を出力する %>
-            <%= message.user.nickname %>
-         </div>
-          <div class="message-date">
-          <%# 投稿した時間を出力する %>
-            <%= message.created_at %>
-          </div>
+            <div class="message-user">
+             <%# 投稿したユーザー情報を出力する %>
+              <%= message.user.nickname %>
+            </div>
+             <div class="message-date">
+              <%# 投稿した時間を出力する %>
+              <%= message.created_at %>
+             </div>
         </div>
          <div class="lower-message">
           <div class="message-content">
@@ -27,10 +31,10 @@
           </div>
            <%= image_tag messages.image.variant(resize:'500x500'), class: 'message-image' if message.image.attached?%>
            <% end %>
-         <% end %>
+          <% end %>
+         </div>
        </div>
-      </div>
-       <div class="follow-content">
+       <div class="form-messages-content">
         <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
          <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
          <%= f.file_field :image, class:"hidden" %>
@@ -39,4 +43,5 @@
        </div>
       </div>
   </div>
+
 </div>

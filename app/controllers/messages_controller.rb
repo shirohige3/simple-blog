@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
+    @rooms = Room.where(id: @room.id)
     @messages = @room.messages.includes(:user)
      #roomに紐つくmessagesを全て定義。user情報も追加。
   end
