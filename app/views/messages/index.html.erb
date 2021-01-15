@@ -2,12 +2,13 @@
 <%= render "shared/side_bar_room" %>
 
 <div class="main-content">
- <div class="title">
-  <%= @room.name %>
+
+ <div class="room-title">
+  <div class="room-name">
+   <%= @room.name %>
+  </div>
+    <%= link_to "ルーム削除", room_path(@room.id), method: :delete, class:"room-delete-btn"%>
  </div>
-  <div class="my-menu">
-   <%= link_to "ルーム削除", room_path(@room.id), method: :delete, class:"title" %>
-   </div>
 
   <div class="blog-content-show">
       <div class="follow-contents">
@@ -43,5 +44,4 @@
        </div>
       </div>
   </div>
-
 </div>

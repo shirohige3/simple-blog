@@ -74,7 +74,7 @@ align-items: flex-end;
   color         : #000066;     /* 文字色     */
   background    : #ffffff;     /* 背景色     */
 }
-.delete-btn:hover,.contribute-btn:hover,.my-menu2:hover,.unfollow-btn:hover{
+.delete-btn:hover,.room-delete-btn:hover,.contribute-btn:hover,.my-menu2:hover,.unfollow-btn:hover{
   box-shadow    : none;
   color: white;
   background: red;
@@ -95,7 +95,7 @@ align-items: flex-end;
 .edit-block{
   justify-content: space-between;
 }
-.edit-btn,.delete-btn,.comment-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn,.follow-btn,.unfollow-btn,.room-form-btn{
+.edit-btn,.delete-btn,.room-delete-btn,.comment-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn,.follow-btn,.unfollow-btn,.room-form-btn{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 22px;        /* 文字サイズ */
@@ -250,7 +250,6 @@ align-items: flex-end;
   font-family: sans-serif;
   font-size: 40px;
   /* 記事一覧に陰影表示 */
-  text-shadow: 4px 3px white, 4px 4px  green; 
   margin-left: 25vw;
   display: flex;
 }

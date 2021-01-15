@@ -14,6 +14,20 @@
   overflow: auto;
 }
 
+.room-title{
+  height: 8vh;
+  width: calc(100% - 50vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;margin-right: auto;
+}
+
+.room-name{
+  font-family: sans-serif;
+  font-size: 4vh;
+}
+
 .room-field{
   width: 80vh;
   margin-top: 3vh;
@@ -22,7 +36,7 @@
   height: 5vh;
   font-size: 3vh;
 }
-.room-name{
+.room-name-create{
   height: 5vh;
   width: 40vw;
   font-size: 2.5vh;
@@ -63,4 +77,9 @@
  border: 1px solid black;
  color: black;
  font-size: 2.5vh;
+}
+
+.room-delete-btn{
+  margin-top: auto;
+  margin-bottom: auto;
 }
