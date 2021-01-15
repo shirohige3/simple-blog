@@ -2,7 +2,6 @@
   height: 23vh;
   width: 45vw;
   margin-left: auto;margin-right: auto;
-  margin: auto;
 }
 
 .room-contents{
@@ -26,7 +25,8 @@
 .room-name{
   height: 5vh;
   width: 40vw;
-  font-size: 2vh;
+  font-size: 2.5vh;
+  cursor: pointer;
 }
 
 .follow-contents{
@@ -56,7 +56,11 @@
   width: 40vw;
 }
 
-.select-box: :after{
+.select-box select{
+  height: 7vh;
   width: 40vw;
-  background-color: azure;
+ background-color: azure;
+ border: 1px solid black;
+ color: black;
+ font-size: 2.5vh;
 }
