@@ -38,6 +38,7 @@
        <div class="form-messages-content">
         <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
          <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
+         <%= f.label :image, for: "file-input", class:"fa fa-camera-image.png", do%>
          <%= f.file_field :image, class:"hidden" %>
          <%= f.submit "送信", class:"message-btn" %>
         <% end %>

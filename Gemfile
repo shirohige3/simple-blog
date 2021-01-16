@@ -70,3 +70,4 @@ group :production do
  end
  gem 'jquery-ui-rails'
  gem 'ransack'
+ gem 'font-awesome-rails'
