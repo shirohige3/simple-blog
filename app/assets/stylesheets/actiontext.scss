@@ -1,3 +1,9 @@
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
 //
 // Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
 // the trix-editor content (whether displayed or under editing). Feel free to incorporate this
@@ -35,9 +41,4 @@
   }
 }
 
-$fa-font-path: '@fontawesome/fontawesome-free/webfonts';
-@import "@fontawesome/fontawesome-free/scss/fontawesome";
-@import "@fontawesome/fontawesome-free/scss/solid";
-@import '@fontawesome/fontawesome-free/scss/regular';
-@import '@fontawesome/fontawesome-free/scss/brands';
-@import '@fontawesome/fontawesome-free/scss/v4-shims'
+

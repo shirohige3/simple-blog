@@ -1,5 +1,5 @@
 <%= render "shared/header"%>
-<%= render "shared/side_bar_room" %>
+<%= render "shared/side_bar_room_message" %>
 
 <div class="main-content">
 
@@ -35,15 +35,18 @@
           <% end %>
          </div>
        </div>
-       <div class="form-messages-content">
-        <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
-         <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
-         <i class="fas fa-camera">
-         <%= f.file_field :image, class:"hidden" %>
-         </i>
-         <%= f.submit "送信", class:"message-btn" %>
-        <% end %>
-       </div>
+       <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
+        <div class="form-messages-content">
+         <div class="form-message-block">
+          <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
+           <i class="fas fa-camera">
+            <%= f.file_field :image, class:"hidden" %>
+           </i>
+           </div>
+             <%= f.submit "送信", class:"message-btn" %>
+        </div>
+       <% end %>
       </div>
+
   </div>
 </div>

@@ -79,7 +79,7 @@ align-items: flex-end;
   color: white;
   background: red;
 }
-.edit-btn:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover,.comment-btn:hover,.return-btn:hover,.follow-btn:hover,.room-form-btn:hover{
+.edit-btn:hover,.registration-btn:hover,.session-btn:hover,.update-btn:hover,.comment-btn:hover,.return-btn:hover,.follow-btn:hover,.room-form-btn:hover,.message-btn:hover{
   box-shadow    : none;
   color: white;
   background: blue;
@@ -95,7 +95,7 @@ align-items: flex-end;
 .edit-block{
   justify-content: space-between;
 }
-.edit-btn,.delete-btn,.room-delete-btn,.comment-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn,.follow-btn,.unfollow-btn,.room-form-btn{
+.edit-btn,.delete-btn,.room-delete-btn,.comment-btn,.contribute-btn2,.registration-btn,.session-btn,.update-btn,.follow-btn,.unfollow-btn,.room-form-btn,.message-btn{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 22px;        /* 文字サイズ */

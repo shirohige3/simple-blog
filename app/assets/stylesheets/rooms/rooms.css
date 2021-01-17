@@ -54,20 +54,29 @@
 }
 
 .form-messages-content{
-  height: 10vh;
-  background-color: black;
+  height: 7.5vh;
+  width: 47vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;margin-right: auto;
 }
 
-
+.messages-form{
+  height: 5vh;
+  width: 30vw;
+  background-color: chartreuse;
+}
 .message-text{
   background-color: blue;
-  height: 70vh;
+  height: 72vh;
   overflow: scroll;
 }
 
 .message-form{
-  height: 7vh;
-  width: 40vw;
+  height: 5vh;
+  width: 37vw;
+  cursor: pointer;
 }
 
 .select-box select{
@@ -82,4 +91,19 @@
 .room-delete-btn{
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.fa-camera{
+  width: 6vw;
+  font-size: 5vh;
+  padding: 1px 3px;
+  color: aqua;
+  background-color: cornsilk;
+  border: black solid 1px;
+}
+
+.form-message-block{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
