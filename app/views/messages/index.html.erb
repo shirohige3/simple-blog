@@ -13,27 +13,24 @@
   <div class="blog-content-show">
       <div class="follow-contents">
        <div class="message-text">
-        <div class="upper-message">
-          <% if @messages %>
-           <% @messages.each do |message| %>
-            <div class="message-user">
-             <%# 投稿したユーザー情報を出力する %>
-              <%= message.user.nickname %>
-            </div>
-             <div class="message-date">
-              <%# 投稿した時間を出力する %>
-              <%= message.created_at %>
+        <% if @messages %>
+         <% @messages.each do |message|%>
+          <div class="upper-message">
+             <div class="message-user"><%# 投稿したユーザー情報を出力する %>
+               <div class="message-username-block">
+                <%= message.user.nickname %>さん:
+               </div>
+               <div class="message-date-block">
+                (<%= message.created_at %>)
+               </div>
              </div>
-        </div>
-         <div class="lower-message">
-          <div class="message-content">
-           <%# 投稿したメッセージ内容を記述する %>
-           <%= message.message_text %>
+              <div class="message-content"><%# 投稿したメッセージ内容を記述する %>
+               <%= message.message_text %>
+              </div>
+               <%= image_tag messages.image.variant(resize:'400x400'), class: 'message-image' if message.image.attached?%>
           </div>
-           <%= image_tag messages.image.variant(resize:'500x500'), class: 'message-image' if message.image.attached?%>
-           <% end %>
-          <% end %>
-         </div>
+         <% end %>
+        <% end %>
        </div>
        <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
         <div class="form-messages-content">
@@ -47,6 +44,5 @@
         </div>
        <% end %>
       </div>
-
   </div>
 </div>
