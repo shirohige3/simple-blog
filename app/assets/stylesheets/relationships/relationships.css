@@ -21,7 +21,7 @@
 }
 
 .follow-btn,.unfollow-btn{
-  font-size: 2vh;
+  font-size: 1.5vh;
   padding   :2vh;   /* 余白       */
 }
 
@@ -62,11 +62,11 @@
 } 
 
 .follow-user{
- height: 7vh;
+ height: 4.5vh;
  width: 15vw;
  text-decoration: none;
+ margin-bottom: 5px;
 }
-
 .follow-nickname{
  font-size: 3.5vh;
  color: black;
@@ -78,11 +78,17 @@
   background: blue;
 }
 
-.follow-btn-block{
-
-}
 
 .follow-name-btn{
  height: 11.5vh;
  width: 15vw;
+ margin: auto;
+}
+
+.follow-btn-block{
+  display: flex;
+}
+
+.follow-chat-btn{
+  margin-right: 15px;
 }

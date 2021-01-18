@@ -8,7 +8,7 @@
    <div class="follow-contents">
      <div class="follow-content">
       <div class="follow-index">
-       フォローリスト
+       フォローしているユーザー
       </div>
        <div class="follow-sort">
         <% @user.following_user.where.not(id: @user.id).each do |user| %>
@@ -18,6 +18,7 @@
           <% else %>
            <%= image_tag "no-image.jpeg", class: "user-img-follow"%>
           <% end %>
+
           <div class="follow-name-btn">
            <div class="follow-user">
             <%= link_to "#{user.nickname}さん", user_path(user.id), method: :get, class:"follow-nickname" %>
@@ -25,10 +26,14 @@
             <% if user_signed_in? %>
              <div class="follow-btn-block">
               <% if current_user.following?(user) %>
-               <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
-               <%= link_to "チャット", rooms_path(@user.id), class:"unfollow-btn"%>
+               <div class="follow-chat-btn">
+                <%= link_to "チャット", rooms_path(@user.id), class:"unfollow-btn"%>
+               </div>
+                <div class="follow-cancel-desbtn">
+                 <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
+                </div>
               <% end %>
-              </div>
+             </div>
             <% end %>
           </div>
          </div>
@@ -37,7 +42,7 @@
      </div>
      <div class="follow-content">
       <div class="follow-index">
-       フォロワーリスト
+       フォローしてくれているユーザー
       </div>
        <div class="follow-sort">
         <% @user.follower_user.where.not(id: @user.id).each do |user| %>

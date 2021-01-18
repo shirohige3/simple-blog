@@ -53,7 +53,7 @@
   cursor: pointer;
 }
 
-.follow-contents{
+.room-message-contents{
   display: block;
   overflow: unset;
   background-color: white;

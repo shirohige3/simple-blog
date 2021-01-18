@@ -253,7 +253,7 @@ align-items: flex-end;
   margin-left: 25vw;
   display: flex;
 }
-.blog-contents,.follow-contents,.room-message-content{
+.blog-contents,.follow-contents,.room-message-contents{
   height: 80vh;
   width: calc(100% - 50vw);
   background-color: cornsilk;
