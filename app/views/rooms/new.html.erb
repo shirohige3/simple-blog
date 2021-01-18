@@ -1,0 +1,40 @@
+<%= render "shared/header"%>
+<%= render "shared/side_bar_room" %>
+
+<div class="main-content">
+ <div class="title">
+  誰にメッセージを送りますか？
+ </div>
+  <div class="blog-content-show">
+   <div class="room-contents">
+    <div class="follow-content">
+     <%=form_with model: @room, local: true do |f|%>
+      <div class='room-fields'>
+       <div class="room-field">
+        <%= f.label :チャットルーム名, class: "room-label" %>
+       </div>
+        <div class="room-name-create">
+         <%= f.text_field :name, placeholder:"ルーム名を設定してください", class:"room-name-create"%>
+        </div>
+         <div class='room-field'>
+          <label class='room-label' for='chat_room_チャットメンバー'>フォロワーを選択してください</label>
+         </div>
+          <div class="select-box">
+           <select name="room[user_ids][]">
+            <% current_user.following_user.all.where.not(id: current_user.id ).each do |user| %>
+             <option value=<%=user.id%>><%= user.nickname %></option>
+            <% end %>
+           </select>
+          </div>
+           <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
+           <div class='room-field'>
+            <div class='room-field--right'>
+             <%= f.submit value:"決定", class: 'room-form-btn'%>
+            </div>
+           </div>
+        </div>
+     <% end %>
+    </div>
+   </div>
+  </div>
+</div>

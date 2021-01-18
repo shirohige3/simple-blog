@@ -1,0 +1,48 @@
+<%= render "shared/header"%>
+<%= render "shared/side_bar_room_message" %>
+
+<div class="main-content">
+
+ <div class="room-title">
+  <div class="room-name">
+   <%= @room.name %>
+  </div>
+    <%= link_to "ルーム削除", room_path(@room.id), method: :delete, class:"room-delete-btn"%>
+ </div>
+
+  <div class="blog-content-show">
+      <div class="room-message-contents">
+       <div class="message-text">
+        <% if @messages %>
+         <% @messages.each do |message|%>
+          <div class="upper-message">
+             <div class="message-user"><%# 投稿したユーザー情報を出力する %>
+               <div class="message-username-block">
+                <%= message.user.nickname %>さん:
+               </div>
+               <div class="message-date-block">
+                (<%= message.created_at %>)
+               </div>
+             </div>
+              <div class="message-content"><%# 投稿したメッセージ内容を記述する %>
+               <%= message.message_text %>
+              </div>
+               <%= image_tag messages.image.variant(resize:'400x400'), class: 'message-image' if message.image.attached?%>
+          </div>
+         <% end %>
+        <% end %>
+       </div>
+       <%= form_with model: [@room, @message], method: :post, local: true do |f| %>
+        <div class="form-messages-content">
+         <div class="form-message-block">
+          <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
+           <i class="fas fa-camera">
+            <%= f.file_field :image, class:"hidden" %>
+           </i>
+           </div>
+             <%= f.submit "送信", class:"message-btn" %>
+        </div>
+       <% end %>
+      </div>
+  </div>
+</div>

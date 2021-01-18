@@ -1,0 +1,126 @@
+.room-fields{
+  height: 23vh;
+  width: 45vw;
+  margin-left: auto;margin-right: auto;
+}
+
+.room-contents{
+  height: 50vh;
+  width: calc(100% - 50vw);
+  border:  black 2px double;
+  background-color: cornsilk;
+  margin-left: auto;margin-right: auto;
+  padding-top: 1px;
+  overflow: auto;
+}
+
+.upper-message{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message-user{
+  display: block;
+  margin-right: 10px;
+}
+
+.room-title{
+  height: 8vh;
+  width: calc(100% - 50vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;margin-right: auto;
+}
+
+.room-name{
+  font-family: sans-serif;
+  font-size: 4vh;
+}
+
+.room-field{
+  width: 80vh;
+  margin-top: 3vh;
+}
+.room-label{
+  height: 5vh;
+  font-size: 3vh;
+}
+.room-name-create{
+  height: 5vh;
+  width: 40vw;
+  font-size: 2.5vh;
+  cursor: pointer;
+}
+
+.room-message-contents{
+  display: block;
+  overflow: unset;
+  background-color: white;
+}
+
+.room-form-users{
+  width: 30vw;
+  background-color: cyan;
+}
+
+.form-messages-content{
+  height: 6vh;
+  width: 48vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;margin-right: auto;
+}
+
+.messages-form{
+  height: 5vh;
+  width: 35vw;
+}
+.message-text{
+  margin: 10px 0 0 10px;
+  background-color: white;
+  height: 72vh;
+  overflow: scroll;
+}
+
+.message-form{
+  height: 5vh;
+  width: 37vw;
+  cursor: pointer;
+}
+
+.select-box select{
+  height: 7vh;
+  width: 40vw;
+ background-color: azure;
+ border: 1px solid black;
+ color: black;
+ font-size: 2.5vh;
+}
+
+.room-delete-btn{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.fa-camera{
+  width: 6vw;
+  font-size: 5vh;
+  padding: 1px 3px;
+  color: aqua;
+  background-color: cornsilk;
+  border: black solid 1px;
+}
+
+.form-message-block{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.message-date-block{
+  font-size: 1px;
+  color: darkgray;
+}
+

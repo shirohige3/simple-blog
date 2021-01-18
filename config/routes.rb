@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     collection do
       get "follower"
     end
-    # resources :relationships
   end
 
   resources :blogs do
@@ -35,5 +34,9 @@ Rails.application.routes.draw do
      get "search"
     end
   end  
+
+  resources :rooms, only: [:index, :new, :create, :show, :destroy] do
+    resources :messages, only: [:index, :create]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

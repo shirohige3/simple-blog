@@ -18,7 +18,6 @@ class BlogsController < ApplicationController
   def create
     @blog = BlogTags.new(blogtags_params)
     if @blog.valid?
-      binding.pry
       @blog.save
       redirect_to user_path(current_user.id)
     else
@@ -40,7 +39,6 @@ class BlogsController < ApplicationController
   end
 
   def update
-    binding.pry
     @newblog = BlogTags.new(blogtags_params)
     if @newblog.valid?
       @newblog.save

@@ -1,5 +1,5 @@
 
-.delete-btn{
+.delete-btn, .room-delete-btn{
   margin: 20px 0px;
   padding: 1vh 3vw;
 }
