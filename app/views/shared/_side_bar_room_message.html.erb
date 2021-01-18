@@ -15,6 +15,14 @@
        <div class="block">
         <%= link_to "一覧へ戻る", root_path, class:"root-index"%>
        </div>
+        <div class="info">
+         ルーム参加者
+        </div>
+         <% @room.users.each do |user| %>
+          <div class="member-block">
+           <%= user.nickname %>さん
+          </div>
+         <%end%>
     <% else %>
      <div class="block">
        <%= link_to "新規登録",new_user_registration_path, class:"new-user"%>

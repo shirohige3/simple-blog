@@ -27,7 +27,7 @@
              <div class="follow-btn-block">
               <% if current_user.following?(user) %>
                <div class="follow-chat-btn">
-                <%= link_to "チャット", rooms_path(@user.id), class:"unfollow-btn"%>
+                <%= link_to "チャット", new_room_path(@user.id), class:"unfollow-btn"%>
                </div>
                 <div class="follow-cancel-desbtn">
                  <%= link_to 'フォロー解除', unfollow_path(user.id), method: :POST, class:"unfollow-btn" %>
