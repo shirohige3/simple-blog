@@ -36,9 +36,12 @@
         <div class="form-messages-content">
          <div class="form-message-block">
           <%= f.text_field :message_text, placeholder: "メッセージを入力してください", class:"message-form"  %>
-           <i class="fas fa-camera">
-            <%= f.file_field :image, class:"hidden" %>
-           </i>
+           <div class="message-file">
+            <%= f.label :image, class:"form-image-label" do %>
+             <i class="fas fa-camera"></i>
+              <%= f.file_field :image, class:"message-hidden" %>
+            <% end %>
+           </div>
            </div>
              <%= f.submit "送信", class:"message-btn" %>
         </div>

@@ -86,8 +86,9 @@
 
 .message-form{
   height: 5vh;
-  width: 37vw;
+  width: 39vw;
   cursor: pointer;
+  border: none;
 }
 
 .select-box select{
@@ -109,14 +110,13 @@
   font-size: 5vh;
   padding: 1px 3px;
   color: aqua;
-  background-color: cornsilk;
-  border: black solid 1px;
 }
 
 .form-message-block{
   display: flex;
   align-items: center;
   cursor: pointer;
+  border: black 1px solid;
 }
 
 .message-date-block{
@@ -128,4 +128,8 @@
   font-size: 20px;
   color: white;
   margin: 10px 5px;
+}
+
+.message-hidden{
+  display: none;
 }
