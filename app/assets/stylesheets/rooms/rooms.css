@@ -109,6 +109,7 @@
   width: 6vw;
   font-size: 5vh;
   padding: 1px 3px;
+  cursor: pointer;
   color: aqua;
 }
 
@@ -117,6 +118,7 @@
   align-items: center;
   cursor: pointer;
   border: black 1px solid;
+  border-radius: 2px;
 }
 
 .message-date-block{

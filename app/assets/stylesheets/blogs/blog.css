@@ -45,8 +45,9 @@
 }
 .blog-head{
   display: flex;
-  width: 50vw;
-  height: 65px;
+  align-items: center;
+  width: 55vw;
+  height: 60px;
   margin-left: auto;margin-right: auto;
 }
 
@@ -55,17 +56,31 @@
   margin-left: 8px;
 }
 .title-area{
-  height: 3.5vh;
-  width: 30vw;
+  height: 4vh;
+  width: 45vw;
   margin: 0 5px;
   cursor: pointer;
+  border-radius: 2px;
+  border: gray 1px solid;
+}
+
+.blog-title-label{
+  font-size: 2.5vh;
+  font-family: cursive;
 }
 
 .title-box{
   display: flex;
 }
 .img-upload{
-  margin-top: 5px;
+  margin-left: 3px;
+}
+
+.fa-images{
+  font-size: 4vh;
+  padding: 1px;
+  color: gray;
+  border: 1px gray solid;
 }
 
 .blog-form{
